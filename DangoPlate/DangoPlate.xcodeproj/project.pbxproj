@@ -30,6 +30,10 @@
 		CC59E4202AD419A200CE02C2 /* DangoPlateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC59E41F2AD419A200CE02C2 /* DangoPlateUITestsLaunchTests.swift */; };
 		CC59E42E2AD41E7700CE02C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC59E42D2AD41E7700CE02C2 /* Launch Screen.storyboard */; };
 		CC59E4332AD5732C00CE02C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC59E4322AD5732C00CE02C2 /* AppDelegate.swift */; };
+		CC8FF9CF2AD66F3200D7288E /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8FF9CE2AD66F3200D7288E /* LayoutView.swift */; };
+		CC98DEAC2AD9C09E001A8ABD /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98DEAB2AD9C09E001A8ABD /* CustomTabBarView.swift */; };
+		CC98DEAE2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98DEAD2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift */; };
+		CC98DEB02AD9C126001A8ABD /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98DEAF2AD9C126001A8ABD /* CustomTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +80,10 @@
 		CC59E41F2AD419A200CE02C2 /* DangoPlateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangoPlateUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CC59E42D2AD41E7700CE02C2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CC59E4322AD5732C00CE02C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CC8FF9CE2AD66F3200D7288E /* LayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
+		CC98DEAB2AD9C09E001A8ABD /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
+		CC98DEAD2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewModel.swift; sourceTree = "<group>"; };
+		CC98DEAF2AD9C126001A8ABD /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				CC4ED8C22AD5799E0089F4F3 /* Home.swift */,
+				CC98DEAF2AD9C126001A8ABD /* CustomTabBar.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -283,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				CC59E42C2AD419D000CE02C2 /* App */,
+				CC98DEA72AD9C057001A8ABD /* Components */,
 				CC59E42F2AD41E8500CE02C2 /* Feature */,
 				CC59E4312AD5720800CE02C2 /* Model */,
 				CCA836592AD57A3A008FE679 /* Util */,
@@ -330,6 +340,7 @@
 		CC59E42F2AD41E8500CE02C2 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				CC8FF9CD2AD66F0400D7288E /* Layout */,
 				CC4ED89D2AD5772E0089F4F3 /* OAuth */,
 				CC4ED89C2AD576C40089F4F3 /* MyPage */,
 				CC4ED89B2AD576830089F4F3 /* Restaurant */,
@@ -358,6 +369,47 @@
 				CC4ED8A92AD577F70089F4F3 /* Home */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CC8FF9CD2AD66F0400D7288E /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				CC8FF9CE2AD66F3200D7288E /* LayoutView.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		CC98DEA72AD9C057001A8ABD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CC98DEA82AD9C06E001A8ABD /* CustomTabBar */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		CC98DEA82AD9C06E001A8ABD /* CustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				CC98DEAA2AD9C086001A8ABD /* ViewModel */,
+				CC98DEA92AD9C07E001A8ABD /* View */,
+			);
+			path = CustomTabBar;
+			sourceTree = "<group>";
+		};
+		CC98DEA92AD9C07E001A8ABD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC98DEAB2AD9C09E001A8ABD /* CustomTabBarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC98DEAA2AD9C086001A8ABD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CC98DEAD2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CCA836592AD57A3A008FE679 /* Util */ = {
@@ -500,17 +552,21 @@
 			files = (
 				CC4ED8BD2AD579570089F4F3 /* SearchViewModel.swift in Sources */,
 				CC4ED8BB2AD5794B0089F4F3 /* SearchView.swift in Sources */,
+				CC98DEAC2AD9C09E001A8ABD /* CustomTabBarView.swift in Sources */,
+				CC8FF9CF2AD66F3200D7288E /* LayoutView.swift in Sources */,
 				CC4ED8B12AD578F30089F4F3 /* OAuthViewModel.swift in Sources */,
 				CC4ED8C92AD579C50089F4F3 /* OAuth.swift in Sources */,
 				CC59E4332AD5732C00CE02C2 /* AppDelegate.swift in Sources */,
 				CC4ED8C72AD579BC0089F4F3 /* Restaurant.swift in Sources */,
 				CC4ED8B72AD579310089F4F3 /* RestaurantView.swift in Sources */,
+				CC98DEAE2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift in Sources */,
 				CC4ED8CB2AD579CE0089F4F3 /* MyPage.swift in Sources */,
 				CC4ED8C32AD5799E0089F4F3 /* Home.swift in Sources */,
 				CC4ED8B92AD5793F0089F4F3 /* RestaurantViewModel.swift in Sources */,
 				CC4ED8B52AD579190089F4F3 /* MyPageViewModel.swift in Sources */,
 				CC4ED8C12AD5796F0089F4F3 /* HomeViewModel.swift in Sources */,
 				CC4ED8AF2AD578E60089F4F3 /* OAuthView.swift in Sources */,
+				CC98DEB02AD9C126001A8ABD /* CustomTabBar.swift in Sources */,
 				CC4ED8BF2AD579650089F4F3 /* HomeView.swift in Sources */,
 				CC4ED8C52AD579AC0089F4F3 /* Search.swift in Sources */,
 				CC59E4032AD419A100CE02C2 /* DangoPlateApp.swift in Sources */,
