@@ -9,7 +9,7 @@ import Foundation
 
 struct CustomTabBar {
     enum TabItemType {
-        case nearbyTab, searchTab, myPageTab
+        case nearbyTab, myPageTab
     }
     
     var selectedTabItem: TabItemType = .nearbyTab

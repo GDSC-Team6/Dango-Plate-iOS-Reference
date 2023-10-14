@@ -11,17 +11,28 @@ import SwiftUI
 import SwiftUI
 
 struct LayoutView: View {
-    @State private var selectedTab = 0
+    @StateObject var customTabBarViewModel: CustomTabBarViewModel = CustomTabBarViewModel()
     
     var body: some View {
         ZStack {
-            HomeView()
+            ContentView()
             
             VStack {
                 Spacer()
-                CustomTabBarView()
+
+                CustomTabBarView(customTabBarViewModel: customTabBarViewModel)
             }
 
+        }
+    }
+    
+    @ViewBuilder
+    func ContentView() -> some View {
+        switch customTabBarViewModel.customTabBar.selectedTabItem {
+        case .nearbyTab:
+            NearbyRestaurantView()
+        case .myPageTab:
+            MyPageView()
         }
     }
 }

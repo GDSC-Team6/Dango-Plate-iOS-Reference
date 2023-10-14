@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CustomTabBarView: View {
-    @StateObject var customTabBarViewModel: CustomTabBarViewModel = CustomTabBarViewModel()
+    @ObservedObject var customTabBarViewModel: CustomTabBarViewModel
     
     var body: some View {
         ZStack {
@@ -25,8 +25,7 @@ struct CustomTabBarView: View {
                     
                     TabItemBtn(customTabBarViewModel: customTabBarViewModel, imageName: "person", caption: "내정보", isSelected: customTabBarViewModel.isSelectedMyPageTab, tabItem: .myPageTab)
                 }
-                .padding(.horizontal, 40)
-                .padding(.top, 5)
+                .padding(.horizontal, 50)
                 
             }
 
@@ -34,7 +33,7 @@ struct CustomTabBarView: View {
         }
         .background(Color.white)
     }
-    
+
     private func TabBarIndicator() -> some View {
         Rectangle()
             .fill(Color(UIColor(red: 0.81, green: 0.81, blue: 0.81, alpha: 1.00)))
@@ -53,11 +52,11 @@ struct CustomTabBarView: View {
         // image
         Image("search.button")
             .resizable()
-            .frame(width: 90, height: 90)
-            .shadow(color: .gray, radius: 5)
-            .offset(y: -12)
+            .frame(width: 70, height: 70)
+            .shadow(color: .gray.opacity(0.8), radius: 5)
+            .offset(y: -5)
             .onTapGesture {
-                customTabBarViewModel.selectTabItem(tabItem: .searchTab)
+                // 검색 화면
             }
     }
 }
@@ -87,9 +86,9 @@ private struct TabItemBtn: View {
         VStack(spacing: 5) {
             Image(systemName: imageName)
                 .resizable()
-                .frame(width: 30, height: 30)
+                .frame(width: 20, height: 20)
             Text(caption)
-                .font(.system(size: 15))
+                .font(.system(size: 10))
         }
         .foregroundStyle(
             isSelected ?
@@ -102,5 +101,5 @@ private struct TabItemBtn: View {
 }
 
 #Preview {
-    CustomTabBarView()
+    CustomTabBarView(customTabBarViewModel: CustomTabBarViewModel())
 }
