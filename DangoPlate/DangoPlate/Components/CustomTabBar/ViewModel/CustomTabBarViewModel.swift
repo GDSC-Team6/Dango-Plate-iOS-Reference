@@ -14,10 +14,6 @@ class CustomTabBarViewModel: ObservableObject {
         customTabBar.selectedTabItem == .nearbyTab ? true : false
     }
     
-    var isSelectedSearchTab: Bool {
-        customTabBar.selectedTabItem == .searchTab ? true : false
-    }
-    
     var isSelectedMyPageTab: Bool {
         customTabBar.selectedTabItem == .myPageTab ? true : false
     }

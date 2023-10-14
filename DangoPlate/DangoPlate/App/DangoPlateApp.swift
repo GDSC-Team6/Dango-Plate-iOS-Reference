@@ -11,8 +11,8 @@ import SwiftUI
 struct DangoPlateApp: App {
     var body: some Scene {
         WindowGroup {
+            // Launch Screen에서 로그인 관련 일을 하고 데이터 미리 받은 후 LayoutView에 뿌려주는 로직 필요!
             LayoutView()
-            // Launch Screen에서 로그인 관련 일을 하고 데이터 미리 받은 후 Home에 뿌려주는 로직 필요!
         }
     }
 }

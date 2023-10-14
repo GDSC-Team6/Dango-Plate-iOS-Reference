@@ -7,4 +7,4 @@
 
 import Foundation
 
-class HomeViewModel {}
+class NearbyRestaurantViewModel {}
