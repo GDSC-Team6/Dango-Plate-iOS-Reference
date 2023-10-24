@@ -36,6 +36,9 @@
 		CC98DEAC2AD9C09E001A8ABD /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98DEAB2AD9C09E001A8ABD /* CustomTabBarView.swift */; };
 		CC98DEAE2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98DEAD2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift */; };
 		CC98DEB02AD9C126001A8ABD /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98DEAF2AD9C126001A8ABD /* CustomTabBar.swift */; };
+		FFE16CEE2AE6243C009FCE74 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FFE16CED2AE6243C009FCE74 /* KakaoSDKAuth */; };
+		FFE16CF42AE6243C009FCE74 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = FFE16CF32AE6243C009FCE74 /* KakaoSDKCommon */; };
+		FFE16D042AE6243C009FCE74 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = FFE16D032AE6243C009FCE74 /* KakaoSDKUser */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +91,7 @@
 		CC98DEAB2AD9C09E001A8ABD /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 		CC98DEAD2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewModel.swift; sourceTree = "<group>"; };
 		CC98DEAF2AD9C126001A8ABD /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		FF8D134E2AE557C8000EB550 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFE16CF42AE6243C009FCE74 /* KakaoSDKCommon in Frameworks */,
+				FFE16D042AE6243C009FCE74 /* KakaoSDKUser in Frameworks */,
+				FFE16CEE2AE6243C009FCE74 /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +286,7 @@
 				CC59E4122AD419A200CE02C2 /* DangoPlateTests */,
 				CC59E41C2AD419A200CE02C2 /* DangoPlateUITests */,
 				CC59E4002AD419A100CE02C2 /* Products */,
+				FF8D134F2AE55B05000EB550 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -295,6 +303,7 @@
 		CC59E4012AD419A100CE02C2 /* DangoPlate */ = {
 			isa = PBXGroup;
 			children = (
+				FF8D134E2AE557C8000EB550 /* Info.plist */,
 				CC59E42C2AD419D000CE02C2 /* App */,
 				CC98DEA72AD9C057001A8ABD /* Components */,
 				CC59E42F2AD41E8500CE02C2 /* Feature */,
@@ -449,6 +458,13 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		FF8D134F2AE55B05000EB550 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -465,6 +481,11 @@
 			dependencies = (
 			);
 			name = DangoPlate;
+			packageProductDependencies = (
+				FFE16CED2AE6243C009FCE74 /* KakaoSDKAuth */,
+				FFE16CF32AE6243C009FCE74 /* KakaoSDKCommon */,
+				FFE16D032AE6243C009FCE74 /* KakaoSDKUser */,
+			);
 			productName = DangoPlate;
 			productReference = CC59E3FF2AD419A100CE02C2 /* DangoPlate.app */;
 			productType = "com.apple.product-type.application";
@@ -537,6 +558,9 @@
 				Base,
 			);
 			mainGroup = CC59E3F62AD419A100CE02C2;
+			packageReferences = (
+				FFE16CEA2AE62429009FCE74 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+			);
 			productRefGroup = CC59E4002AD419A100CE02C2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -766,13 +790,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DangoPlate/Preview Content\"";
-				DEVELOPMENT_TEAM = YWNQ4RZBTS;
+				DEVELOPMENT_TEAM = U6NUHA5DNR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DangoPlate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
@@ -800,13 +824,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DangoPlate/Preview Content\"";
-				DEVELOPMENT_TEAM = YWNQ4RZBTS;
+				DEVELOPMENT_TEAM = U6NUHA5DNR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DangoPlate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
@@ -942,6 +966,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FFE16CEA2AE62429009FCE74 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FFE16CED2AE6243C009FCE74 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFE16CEA2AE62429009FCE74 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		FFE16CF32AE6243C009FCE74 /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFE16CEA2AE62429009FCE74 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
+		FFE16D032AE6243C009FCE74 /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFE16CEA2AE62429009FCE74 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CC59E3F72AD419A100CE02C2 /* Project object */;
 }
