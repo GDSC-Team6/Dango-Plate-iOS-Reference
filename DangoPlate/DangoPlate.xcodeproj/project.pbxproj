@@ -36,6 +36,11 @@
 		CC98DEAC2AD9C09E001A8ABD /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98DEAB2AD9C09E001A8ABD /* CustomTabBarView.swift */; };
 		CC98DEAE2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98DEAD2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift */; };
 		CC98DEB02AD9C126001A8ABD /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98DEAF2AD9C126001A8ABD /* CustomTabBar.swift */; };
+		CCD8D6302AE8250300FC3357 /* SearchRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8D62F2AE8250300FC3357 /* SearchRadius.swift */; };
+		CCD8D6322AE8273E00FC3357 /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8D6312AE8273E00FC3357 /* SortType.swift */; };
+		CCD8D6342AE827C200FC3357 /* FilterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8D6332AE827C200FC3357 /* FilterType.swift */; };
+		CCD8D6382AE83AF700FC3357 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8D6372AE83AF700FC3357 /* Path.swift */; };
+		CCD8D63A2AE83B1B00FC3357 /* PathType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8D6392AE83B1B00FC3357 /* PathType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +93,11 @@
 		CC98DEAB2AD9C09E001A8ABD /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 		CC98DEAD2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewModel.swift; sourceTree = "<group>"; };
 		CC98DEAF2AD9C126001A8ABD /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		CCD8D62F2AE8250300FC3357 /* SearchRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRadius.swift; sourceTree = "<group>"; };
+		CCD8D6312AE8273E00FC3357 /* SortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
+		CCD8D6332AE827C200FC3357 /* FilterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterType.swift; sourceTree = "<group>"; };
+		CCD8D6372AE83AF700FC3357 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		CCD8D6392AE83B1B00FC3357 /* PathType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +254,9 @@
 			isa = PBXGroup;
 			children = (
 				CC4ED8C42AD579AC0089F4F3 /* Search.swift */,
+				CCD8D62F2AE8250300FC3357 /* SearchRadius.swift */,
+				CCD8D6312AE8273E00FC3357 /* SortType.swift */,
+				CCD8D6332AE827C200FC3357 /* FilterType.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -366,6 +379,7 @@
 		CC59E4312AD5720800CE02C2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CCD8D6362AE83ADF00FC3357 /* Path */,
 				CC4ED8AD2AD578220089F4F3 /* MyPage */,
 				CC4ED8AC2AD5781B0089F4F3 /* OAuth */,
 				CC4ED8AB2AD5780F0089F4F3 /* Restaurant */,
@@ -447,6 +461,15 @@
 			children = (
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		CCD8D6362AE83ADF00FC3357 /* Path */ = {
+			isa = PBXGroup;
+			children = (
+				CCD8D6372AE83AF700FC3357 /* Path.swift */,
+				CCD8D6392AE83B1B00FC3357 /* PathType.swift */,
+			);
+			path = Path;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -590,18 +613,23 @@
 				CC4ED8C72AD579BC0089F4F3 /* Restaurant.swift in Sources */,
 				CC4ED8B72AD579310089F4F3 /* RestaurantView.swift in Sources */,
 				CC98DEAE2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift in Sources */,
+				CCD8D6322AE8273E00FC3357 /* SortType.swift in Sources */,
 				CC4ED8CB2AD579CE0089F4F3 /* MyPage.swift in Sources */,
+				CCD8D6302AE8250300FC3357 /* SearchRadius.swift in Sources */,
 				CC6770512ADA83BB0039A15B /* RestaurantListViewModel.swift in Sources */,
 				CC4ED8C32AD5799E0089F4F3 /* Home.swift in Sources */,
+				CCD8D6342AE827C200FC3357 /* FilterType.swift in Sources */,
 				CC4ED8B92AD5793F0089F4F3 /* RestaurantViewModel.swift in Sources */,
 				CC4ED8B52AD579190089F4F3 /* MyPageViewModel.swift in Sources */,
 				CC4ED8C12AD5796F0089F4F3 /* NearbyRestaurantViewModel.swift in Sources */,
 				CC4ED8AF2AD578E60089F4F3 /* OAuthView.swift in Sources */,
+				CCD8D63A2AE83B1B00FC3357 /* PathType.swift in Sources */,
 				CC98DEB02AD9C126001A8ABD /* CustomTabBar.swift in Sources */,
 				CC4ED8BF2AD579650089F4F3 /* NearbyRestaurantView.swift in Sources */,
 				CC4ED8C52AD579AC0089F4F3 /* Search.swift in Sources */,
 				CC67704F2ADA83A80039A15B /* RestaurantListView.swift in Sources */,
 				CC59E4032AD419A100CE02C2 /* DangoPlateApp.swift in Sources */,
+				CCD8D6382AE83AF700FC3357 /* Path.swift in Sources */,
 				CC4ED8B32AD5790B0089F4F3 /* MyPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
