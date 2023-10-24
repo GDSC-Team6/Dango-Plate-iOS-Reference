@@ -9,9 +9,19 @@ import SwiftUI
 
 @main
 struct DangoPlateApp: App {
+
+//    @StateObject var userAuth: OAuthViewModel = OAuthViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            // Launch Screen에서 로그인 관련 일을 하고 데이터 미리 받은 후 LayoutView에 뿌려주는 로직 필요!
+//      앞으로 이런 구조로 가야함
+//            if userAuth.isLoggedIn {
+//                LayoutView()
+//                    .environmentObject(userAuth)
+//            } else {
+//                OAuthView()
+//                    .environmentObject(userAuth)
+//            }
             LayoutView()
         }
     }
