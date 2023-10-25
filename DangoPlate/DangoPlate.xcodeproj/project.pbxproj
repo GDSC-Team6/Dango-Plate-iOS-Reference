@@ -28,7 +28,6 @@
 		CC59E4142AD419A200CE02C2 /* DangoPlateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC59E4132AD419A200CE02C2 /* DangoPlateTests.swift */; };
 		CC59E41E2AD419A200CE02C2 /* DangoPlateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC59E41D2AD419A200CE02C2 /* DangoPlateUITests.swift */; };
 		CC59E4202AD419A200CE02C2 /* DangoPlateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC59E41F2AD419A200CE02C2 /* DangoPlateUITestsLaunchTests.swift */; };
-		CC59E42E2AD41E7700CE02C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC59E42D2AD41E7700CE02C2 /* Launch Screen.storyboard */; };
 		CC59E4332AD5732C00CE02C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC59E4322AD5732C00CE02C2 /* AppDelegate.swift */; };
 		CC67704F2ADA83A80039A15B /* RestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC67704E2ADA83A80039A15B /* RestaurantListView.swift */; };
 		CC6770512ADA83BB0039A15B /* RestaurantListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6770502ADA83BB0039A15B /* RestaurantListViewModel.swift */; };
@@ -39,6 +38,8 @@
 		FFE16CEE2AE6243C009FCE74 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FFE16CED2AE6243C009FCE74 /* KakaoSDKAuth */; };
 		FFE16CF42AE6243C009FCE74 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = FFE16CF32AE6243C009FCE74 /* KakaoSDKCommon */; };
 		FFE16D042AE6243C009FCE74 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = FFE16D032AE6243C009FCE74 /* KakaoSDKUser */; };
+		FFE16D062AE7C29C009FCE74 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFE16D052AE7C29C009FCE74 /* Launch Screen.storyboard */; };
+		FFE16D082AE7D95A009FCE74 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE16D072AE7D95A009FCE74 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +84,6 @@
 		CC59E4192AD419A200CE02C2 /* DangoPlateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DangoPlateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC59E41D2AD419A200CE02C2 /* DangoPlateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangoPlateUITests.swift; sourceTree = "<group>"; };
 		CC59E41F2AD419A200CE02C2 /* DangoPlateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangoPlateUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		CC59E42D2AD41E7700CE02C2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CC59E4322AD5732C00CE02C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC67704E2ADA83A80039A15B /* RestaurantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListView.swift; sourceTree = "<group>"; };
 		CC6770502ADA83BB0039A15B /* RestaurantListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewModel.swift; sourceTree = "<group>"; };
@@ -92,6 +92,8 @@
 		CC98DEAD2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewModel.swift; sourceTree = "<group>"; };
 		CC98DEAF2AD9C126001A8ABD /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		FF8D134E2AE557C8000EB550 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FFE16D052AE7C29C009FCE74 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		FFE16D072AE7D95A009FCE74 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				CC4ED8B22AD5790B0089F4F3 /* MyPageView.swift */,
+				FFE16D072AE7D95A009FCE74 /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -344,7 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				CC59E4022AD419A100CE02C2 /* DangoPlateApp.swift */,
-				CC59E42D2AD41E7700CE02C2 /* Launch Screen.storyboard */,
+				FFE16D052AE7C29C009FCE74 /* Launch Screen.storyboard */,
 				CC59E4322AD5732C00CE02C2 /* AppDelegate.swift */,
 			);
 			path = App;
@@ -577,7 +580,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC59E42E2AD41E7700CE02C2 /* Launch Screen.storyboard in Resources */,
+				FFE16D062AE7C29C009FCE74 /* Launch Screen.storyboard in Resources */,
 				CC59E40A2AD419A200CE02C2 /* Preview Assets.xcassets in Resources */,
 				CC59E4072AD419A200CE02C2 /* Assets.xcassets in Resources */,
 			);
@@ -620,6 +623,7 @@
 				CC4ED8B92AD5793F0089F4F3 /* RestaurantViewModel.swift in Sources */,
 				CC4ED8B52AD579190089F4F3 /* MyPageViewModel.swift in Sources */,
 				CC4ED8C12AD5796F0089F4F3 /* NearbyRestaurantViewModel.swift in Sources */,
+				FFE16D082AE7D95A009FCE74 /* ProfileView.swift in Sources */,
 				CC4ED8AF2AD578E60089F4F3 /* OAuthView.swift in Sources */,
 				CC98DEB02AD9C126001A8ABD /* CustomTabBar.swift in Sources */,
 				CC4ED8BF2AD579650089F4F3 /* NearbyRestaurantView.swift in Sources */,
@@ -797,6 +801,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
@@ -831,6 +836,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;

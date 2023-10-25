@@ -11,7 +11,11 @@ import KakaoSDKUser
 import KakaoSDKAuth
 
 struct OAuthView: View {
-    @ObservedObject private var viewModel = OAuthViewModel()
+    @ObservedObject private var viewModel: OAuthViewModel
+
+    init(viewModel: OAuthViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         if viewModel.isLoggedIn {
@@ -49,6 +53,7 @@ struct OAuthView: View {
 }
 
 
+
 #Preview {
-    OAuthView()
+    OAuthView(viewModel: OAuthViewModel())
 }

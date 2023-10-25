@@ -13,24 +13,16 @@ import KakaoSDKUser
 @main
 struct DangoPlateApp: App {
     @ObservedObject var viewModel = OAuthViewModel()
-    @State private var isLoading = true
 
     init() {
         // Kakao SDK 초기화
         KakaoSDK.initSDK(appKey: "68ed665b02db6a5c7c3b1154ca4947f4")
-        
-        }
+    }
+
     var body: some Scene {
         WindowGroup {
-            if isLoading {
-                if viewModel.isLoggedIn {
-                    LayoutView()
-                }
-                else {
-                    OAuthView()
-                }
-            }
+            OAuthView(viewModel: viewModel)
         }
     }
-    
 }
+
