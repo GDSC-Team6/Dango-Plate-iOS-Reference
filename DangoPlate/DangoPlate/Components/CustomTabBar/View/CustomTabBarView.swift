@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CustomTabBarView: View {
+    @EnvironmentObject private var pathModel: PathModel
     @ObservedObject var customTabBarViewModel: CustomTabBarViewModel
     
     var body: some View {
@@ -56,7 +57,7 @@ struct CustomTabBarView: View {
             .shadow(color: .gray.opacity(0.8), radius: 5)
             .offset(y: -5)
             .onTapGesture {
-                // 검색 화면
+                pathModel.paths.append(.searchView)
             }
     }
 }
