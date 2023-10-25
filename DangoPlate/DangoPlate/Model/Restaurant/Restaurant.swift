@@ -11,6 +11,6 @@ struct RestaurantBasicInfo: Hashable {
     var thumbnail: String
     var name: String
     var shortAddress: String
-    var numberOfReviews: String
+    var numberOfReviews: Int
     var isWishList: Bool
 }

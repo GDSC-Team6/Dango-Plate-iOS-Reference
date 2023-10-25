@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC33DD7E2AE8C4AE00F392D4 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC33DD7D2AE8C4AE00F392D4 /* DummyData.swift */; };
+		CC33DD812AE8C70100F392D4 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC33DD802AE8C70100F392D4 /* String+Extensions.swift */; };
 		CC4ED8AF2AD578E60089F4F3 /* OAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4ED8AE2AD578E60089F4F3 /* OAuthView.swift */; };
 		CC4ED8B12AD578F30089F4F3 /* OAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4ED8B02AD578F30089F4F3 /* OAuthViewModel.swift */; };
 		CC4ED8B32AD5790B0089F4F3 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4ED8B22AD5790B0089F4F3 /* MyPageView.swift */; };
@@ -61,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC33DD7D2AE8C4AE00F392D4 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		CC33DD802AE8C70100F392D4 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		CC4ED8AE2AD578E60089F4F3 /* OAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthView.swift; sourceTree = "<group>"; };
 		CC4ED8B02AD578F30089F4F3 /* OAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthViewModel.swift; sourceTree = "<group>"; };
 		CC4ED8B22AD5790B0089F4F3 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
@@ -125,6 +129,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC33DD7C2AE8C49500F392D4 /* Dummy */ = {
+			isa = PBXGroup;
+			children = (
+				CC33DD7D2AE8C4AE00F392D4 /* DummyData.swift */,
+			);
+			path = Dummy;
+			sourceTree = "<group>";
+		};
+		CC33DD7F2AE8C6F300F392D4 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CC33DD802AE8C70100F392D4 /* String+Extensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		CC4ED89A2AD576710089F4F3 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,6 +479,8 @@
 		CCA836592AD57A3A008FE679 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				CC33DD7F2AE8C6F300F392D4 /* Extension */,
+				CC33DD7C2AE8C49500F392D4 /* Dummy */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -631,6 +653,8 @@
 				CC59E4032AD419A100CE02C2 /* DangoPlateApp.swift in Sources */,
 				CCD8D6382AE83AF700FC3357 /* Path.swift in Sources */,
 				CC4ED8B32AD5790B0089F4F3 /* MyPageView.swift in Sources */,
+				CC33DD812AE8C70100F392D4 /* String+Extensions.swift in Sources */,
+				CC33DD7E2AE8C4AE00F392D4 /* DummyData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
