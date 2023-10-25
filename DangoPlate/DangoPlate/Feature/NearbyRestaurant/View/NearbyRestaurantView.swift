@@ -31,6 +31,7 @@ struct HeaderView: View {
             Spacer()
         }
         .padding(.leading)
+        .padding(.top)
     }
 }
 
