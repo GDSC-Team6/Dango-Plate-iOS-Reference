@@ -28,7 +28,6 @@
 		CC59E4142AD419A200CE02C2 /* DangoPlateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC59E4132AD419A200CE02C2 /* DangoPlateTests.swift */; };
 		CC59E41E2AD419A200CE02C2 /* DangoPlateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC59E41D2AD419A200CE02C2 /* DangoPlateUITests.swift */; };
 		CC59E4202AD419A200CE02C2 /* DangoPlateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC59E41F2AD419A200CE02C2 /* DangoPlateUITestsLaunchTests.swift */; };
-		CC59E42E2AD41E7700CE02C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC59E42D2AD41E7700CE02C2 /* Launch Screen.storyboard */; };
 		CC59E4332AD5732C00CE02C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC59E4322AD5732C00CE02C2 /* AppDelegate.swift */; };
 		CC67704F2ADA83A80039A15B /* RestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC67704E2ADA83A80039A15B /* RestaurantListView.swift */; };
 		CC6770512ADA83BB0039A15B /* RestaurantListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6770502ADA83BB0039A15B /* RestaurantListViewModel.swift */; };
@@ -36,6 +35,11 @@
 		CC98DEAC2AD9C09E001A8ABD /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98DEAB2AD9C09E001A8ABD /* CustomTabBarView.swift */; };
 		CC98DEAE2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98DEAD2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift */; };
 		CC98DEB02AD9C126001A8ABD /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98DEAF2AD9C126001A8ABD /* CustomTabBar.swift */; };
+		FFE16CEE2AE6243C009FCE74 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FFE16CED2AE6243C009FCE74 /* KakaoSDKAuth */; };
+		FFE16CF42AE6243C009FCE74 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = FFE16CF32AE6243C009FCE74 /* KakaoSDKCommon */; };
+		FFE16D042AE6243C009FCE74 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = FFE16D032AE6243C009FCE74 /* KakaoSDKUser */; };
+		FFE16D062AE7C29C009FCE74 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFE16D052AE7C29C009FCE74 /* Launch Screen.storyboard */; };
+		FFE16D082AE7D95A009FCE74 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE16D072AE7D95A009FCE74 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +84,6 @@
 		CC59E4192AD419A200CE02C2 /* DangoPlateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DangoPlateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC59E41D2AD419A200CE02C2 /* DangoPlateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangoPlateUITests.swift; sourceTree = "<group>"; };
 		CC59E41F2AD419A200CE02C2 /* DangoPlateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangoPlateUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		CC59E42D2AD41E7700CE02C2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CC59E4322AD5732C00CE02C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC67704E2ADA83A80039A15B /* RestaurantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListView.swift; sourceTree = "<group>"; };
 		CC6770502ADA83BB0039A15B /* RestaurantListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewModel.swift; sourceTree = "<group>"; };
@@ -88,6 +91,9 @@
 		CC98DEAB2AD9C09E001A8ABD /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 		CC98DEAD2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewModel.swift; sourceTree = "<group>"; };
 		CC98DEAF2AD9C126001A8ABD /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		FF8D134E2AE557C8000EB550 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FFE16D052AE7C29C009FCE74 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		FFE16D072AE7D95A009FCE74 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFE16CF42AE6243C009FCE74 /* KakaoSDKCommon in Frameworks */,
+				FFE16D042AE6243C009FCE74 /* KakaoSDKUser in Frameworks */,
+				FFE16CEE2AE6243C009FCE74 /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				CC4ED8B22AD5790B0089F4F3 /* MyPageView.swift */,
+				FFE16D072AE7D95A009FCE74 /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -279,6 +289,7 @@
 				CC59E4122AD419A200CE02C2 /* DangoPlateTests */,
 				CC59E41C2AD419A200CE02C2 /* DangoPlateUITests */,
 				CC59E4002AD419A100CE02C2 /* Products */,
+				FF8D134F2AE55B05000EB550 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -295,6 +306,7 @@
 		CC59E4012AD419A100CE02C2 /* DangoPlate */ = {
 			isa = PBXGroup;
 			children = (
+				FF8D134E2AE557C8000EB550 /* Info.plist */,
 				CC59E42C2AD419D000CE02C2 /* App */,
 				CC98DEA72AD9C057001A8ABD /* Components */,
 				CC59E42F2AD41E8500CE02C2 /* Feature */,
@@ -335,7 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				CC59E4022AD419A100CE02C2 /* DangoPlateApp.swift */,
-				CC59E42D2AD41E7700CE02C2 /* Launch Screen.storyboard */,
+				FFE16D052AE7C29C009FCE74 /* Launch Screen.storyboard */,
 				CC59E4322AD5732C00CE02C2 /* AppDelegate.swift */,
 			);
 			path = App;
@@ -449,6 +461,13 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		FF8D134F2AE55B05000EB550 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -465,6 +484,11 @@
 			dependencies = (
 			);
 			name = DangoPlate;
+			packageProductDependencies = (
+				FFE16CED2AE6243C009FCE74 /* KakaoSDKAuth */,
+				FFE16CF32AE6243C009FCE74 /* KakaoSDKCommon */,
+				FFE16D032AE6243C009FCE74 /* KakaoSDKUser */,
+			);
 			productName = DangoPlate;
 			productReference = CC59E3FF2AD419A100CE02C2 /* DangoPlate.app */;
 			productType = "com.apple.product-type.application";
@@ -537,6 +561,9 @@
 				Base,
 			);
 			mainGroup = CC59E3F62AD419A100CE02C2;
+			packageReferences = (
+				FFE16CEA2AE62429009FCE74 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+			);
 			productRefGroup = CC59E4002AD419A100CE02C2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -553,7 +580,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC59E42E2AD41E7700CE02C2 /* Launch Screen.storyboard in Resources */,
+				FFE16D062AE7C29C009FCE74 /* Launch Screen.storyboard in Resources */,
 				CC59E40A2AD419A200CE02C2 /* Preview Assets.xcassets in Resources */,
 				CC59E4072AD419A200CE02C2 /* Assets.xcassets in Resources */,
 			);
@@ -596,6 +623,7 @@
 				CC4ED8B92AD5793F0089F4F3 /* RestaurantViewModel.swift in Sources */,
 				CC4ED8B52AD579190089F4F3 /* MyPageViewModel.swift in Sources */,
 				CC4ED8C12AD5796F0089F4F3 /* NearbyRestaurantViewModel.swift in Sources */,
+				FFE16D082AE7D95A009FCE74 /* ProfileView.swift in Sources */,
 				CC4ED8AF2AD578E60089F4F3 /* OAuthView.swift in Sources */,
 				CC98DEB02AD9C126001A8ABD /* CustomTabBar.swift in Sources */,
 				CC4ED8BF2AD579650089F4F3 /* NearbyRestaurantView.swift in Sources */,
@@ -766,9 +794,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DangoPlate/Preview Content\"";
-				DEVELOPMENT_TEAM = YWNQ4RZBTS;
+				DEVELOPMENT_TEAM = U6NUHA5DNR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DangoPlate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -800,9 +829,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DangoPlate/Preview Content\"";
-				DEVELOPMENT_TEAM = YWNQ4RZBTS;
+				DEVELOPMENT_TEAM = U6NUHA5DNR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DangoPlate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -942,6 +972,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FFE16CEA2AE62429009FCE74 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FFE16CED2AE6243C009FCE74 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFE16CEA2AE62429009FCE74 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		FFE16CF32AE6243C009FCE74 /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFE16CEA2AE62429009FCE74 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
+		FFE16D032AE6243C009FCE74 /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFE16CEA2AE62429009FCE74 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CC59E3F72AD419A100CE02C2 /* Project object */;
 }
