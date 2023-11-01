@@ -24,6 +24,7 @@
 		CC4ED8C72AD579BC0089F4F3 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4ED8C62AD579BC0089F4F3 /* Restaurant.swift */; };
 		CC4ED8C92AD579C50089F4F3 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4ED8C82AD579C50089F4F3 /* OAuth.swift */; };
 		CC4ED8CB2AD579CE0089F4F3 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4ED8CA2AD579CE0089F4F3 /* MyPage.swift */; };
+		CC51E0C62AF27427009439D0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CC51E0C52AF27427009439D0 /* Alamofire */; };
 		CC59E4032AD419A100CE02C2 /* DangoPlateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC59E4022AD419A100CE02C2 /* DangoPlateApp.swift */; };
 		CC59E4072AD419A200CE02C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC59E4062AD419A200CE02C2 /* Assets.xcassets */; };
 		CC59E40A2AD419A200CE02C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC59E4092AD419A200CE02C2 /* Preview Assets.xcassets */; };
@@ -109,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC51E0C62AF27427009439D0 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +512,9 @@
 			dependencies = (
 			);
 			name = DangoPlate;
+			packageProductDependencies = (
+				CC51E0C52AF27427009439D0 /* Alamofire */,
+			);
 			productName = DangoPlate;
 			productReference = CC59E3FF2AD419A100CE02C2 /* DangoPlate.app */;
 			productType = "com.apple.product-type.application";
@@ -582,6 +587,9 @@
 				Base,
 			);
 			mainGroup = CC59E3F62AD419A100CE02C2;
+			packageReferences = (
+				CC51E0C42AF27427009439D0 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = CC59E4002AD419A100CE02C2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -994,6 +1002,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CC51E0C42AF27427009439D0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CC51E0C52AF27427009439D0 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC51E0C42AF27427009439D0 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CC59E3F72AD419A100CE02C2 /* Project object */;
 }
