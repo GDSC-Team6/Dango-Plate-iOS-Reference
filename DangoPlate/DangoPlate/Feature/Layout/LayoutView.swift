@@ -28,7 +28,7 @@ struct LayoutView: View {
                 switch path {
                 case .searchView:
                     SearchView()
-//                        .navigationBarBackButtonHidden()
+                        .navigationBarBackButtonHidden()
                 default:
                     MyPageView()
 //                        .navigationBarBackButtonHidden()
