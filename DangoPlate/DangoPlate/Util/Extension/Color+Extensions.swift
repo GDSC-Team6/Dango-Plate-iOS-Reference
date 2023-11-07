@@ -5,8 +5,9 @@
 //  Created by Jinyoung Yoo on 11/6/23.
 //
 
-import Foundation
+import SwiftUI
 
-enum Color {
-    case dangoBrown 
+extension Color {
+    static let dangoBrownColor = Color("DangoBrownColor")
+    static let basicGrayColor = Color("BasicGrayColor")
 }

@@ -92,7 +92,7 @@ private struct TabItemBtn: View {
         }
         .foregroundStyle(
             isSelected ?
-            Color(UIColor(red: 0.68, green: 0.34, blue: 0.15, alpha: 1.00)) : Color(UIColor(red: 0.81, green: 0.81, blue: 0.81, alpha: 1.00))
+            Color.dangoBrownColor : Color.basicGrayColor
         )
         .padding(.vertical, 5)
         .onTapGesture {

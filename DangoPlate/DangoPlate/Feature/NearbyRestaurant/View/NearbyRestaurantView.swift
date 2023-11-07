@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct NearbyRestaurantView: View {
+    @StateObject var restaurantListViewModel = RestaurantListViewModel(restaurantList:  DummyData.createDummyList(capacity: 20), searchType: .nearyBy)
     var body: some View {
         VStack {
             HeaderView()
             Divider()
-            RestaurantListView()
+            RestaurantListView(restaurantListViewModel: restaurantListViewModel)
         }
     }
 }
