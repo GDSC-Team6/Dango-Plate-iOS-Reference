@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+enum SearchType {
+    case nearyBy, keyword
+}

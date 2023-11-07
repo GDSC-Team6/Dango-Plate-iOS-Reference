@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct RestaurantListView: View {
-    @StateObject private var restaurantListViewModel = RestaurantListViewModel(restaurantList: DummyData.createDummyList(capacity: 20))
+    @ObservedObject var restaurantListViewModel: RestaurantListViewModel
 
     var body: some View {
         ScrollView {
-            RestaurantListOptionView()
+            RestaurantListOptionView(searchType: restaurantListViewModel.searchType)
             Divider()
             RestaurantListGridView(viewModel: restaurantListViewModel)
         }
@@ -21,16 +21,21 @@ struct RestaurantListView: View {
 }
 
 private struct RestaurantListOptionView: View {
+    fileprivate var searchType: SearchType
+    
     fileprivate var body: some View {
         HStack {
             Text("평점순")
                 .foregroundStyle(.gray)
             Spacer()
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
-            })
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
+            
+            if (searchType == .nearyBy) {
+                Button(action: {} , label: {
+                    Image("500m")
+                })
+            }
+            Button(action: {}, label: {
+                Image("filter_noSelected")
             })
         }
         .frame(height: 20)
@@ -63,19 +68,14 @@ private struct RestaurantBasicInfoView: View {
                 .aspectRatio(1, contentMode: .fit)
                 .foregroundStyle(.gray)
                 .overlay(alignment: .topTrailing) {
-                    Circle()
-                        .frame(width: 40, height: 40)
-                        .foregroundStyle(
-                            basicInfo.isWishList ? .orange : .white
-                        )
-                        .padding(.all, 5)
+                    basicInfo.isWishList ? Image("like_selected") : Image("like_noSelected")
                 }
             Group {
-                Text("\(idx). \(basicInfo.name)")
-                    .font(.system(size: 17, weight: .regular))
+                Text("\(idx). \(basicInfo.place_name)")
+                    .font(.system(size: 15, weight: .regular))
                 Text(basicInfo.shortAddress)
                     .foregroundStyle(.gray)
-                    .font(.system(size: 13, weight: .light))
+                    .font(.system(size: 10, weight: .light))
                 HStack(spacing: 1) {
                     Image(systemName: "pencil")
                         .renderingMode(/*@START_MENU_TOKEN@*/.template/*@END_MENU_TOKEN@*/)
@@ -89,6 +89,5 @@ private struct RestaurantBasicInfoView: View {
 }
 
 #Preview {
-    RestaurantListView()
-//    RestaurantBasicInfoView(basicInfo: .init(thumbnail: "", name: "크라이치즈버거", shortAddress: "역곡동", numberOfReviews: 32, isWishList: false), idx: 1)
+    RestaurantListView(restaurantListViewModel: RestaurantListViewModel(restaurantList: DummyData.createDummyList(capacity: 20), searchType: .nearyBy))
 }

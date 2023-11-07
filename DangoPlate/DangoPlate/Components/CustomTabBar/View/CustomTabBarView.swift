@@ -12,27 +12,26 @@ struct CustomTabBarView: View {
     @ObservedObject var customTabBarViewModel: CustomTabBarViewModel
     
     var body: some View {
-        ZStack {
-            VStack {
+        VStack {
+            TabBarIndicator()
 
-                TabBarIndicator()
+            HStack {
 
-                HStack {
-
-                    TabItemBtn(customTabBarViewModel: customTabBarViewModel, imageName: "mappin.and.ellipse", caption: "주변맛집", isSelected: customTabBarViewModel.isSelectedNearByTab, tabItem: .nearbyTab
-                    )
-                    
-                    Spacer()
-                    
-                    TabItemBtn(customTabBarViewModel: customTabBarViewModel, imageName: "person", caption: "내정보", isSelected: customTabBarViewModel.isSelectedMyPageTab, tabItem: .myPageTab)
-                }
-                .padding(.horizontal, 50)
+                TabItemBtn(customTabBarViewModel: customTabBarViewModel, imageName: "mappin.and.ellipse", caption: "주변맛집", isSelected: customTabBarViewModel.isSelectedNearByTab, tabItem: .nearbyTab
+                )
                 
+                Spacer()
+                
+                TabItemBtn(customTabBarViewModel: customTabBarViewModel, imageName: "person", caption: "내정보", isSelected: customTabBarViewModel.isSelectedMyPageTab, tabItem: .myPageTab)
             }
-
-            SearchBtn()
+            .padding(.horizontal, 50)
+            
         }
         .background(Color.white)
+        .overlay {
+            SearchBtn()            
+        }
+        
     }
 
     private func TabBarIndicator() -> some View {
@@ -54,8 +53,8 @@ struct CustomTabBarView: View {
         Image("search.button")
             .resizable()
             .frame(width: 70, height: 70)
-            .shadow(color: .gray.opacity(0.8), radius: 5)
-            .offset(y: -5)
+            .shadow(color: .gray, radius: 5)
+            .offset(y: -8)
             .onTapGesture {
                 pathModel.paths.append(.searchView)
             }
@@ -93,8 +92,9 @@ private struct TabItemBtn: View {
         }
         .foregroundStyle(
             isSelected ?
-            Color(UIColor(red: 0.68, green: 0.34, blue: 0.15, alpha: 1.00)) : Color(UIColor(red: 0.81, green: 0.81, blue: 0.81, alpha: 1.00))
+            Color.dangoBrownColor : Color.basicGrayColor
         )
+        .padding(.vertical, 5)
         .onTapGesture {
             customTabBarViewModel.selectTabItem(tabItem: tabItem)
         }
