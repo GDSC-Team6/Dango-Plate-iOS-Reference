@@ -22,7 +22,7 @@ struct DangoPlateApp: App {
 //                OAuthView()
 //                    .environmentObject(userAuth)
 //            }
-            LayoutView()
+            OAuthView()
         }
     }
 }
