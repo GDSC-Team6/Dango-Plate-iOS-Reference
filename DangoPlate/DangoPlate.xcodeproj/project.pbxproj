@@ -45,7 +45,7 @@
 		CCD8D6382AE83AF700FC3357 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8D6372AE83AF700FC3357 /* Path.swift */; };
 		CCD8D63A2AE83B1B00FC3357 /* PathType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8D6392AE83B1B00FC3357 /* PathType.swift */; };
 		CCDBFAC02AF8C0ED00985B2C /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDBFABF2AF8C0ED00985B2C /* Color+Extensions.swift */; };
-		CCFF152D2AF9FAC30012E7D5 /* SearchResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFF152C2AF9FAC30012E7D5 /* SearchResultResponse.swift */; };
+		CCFF152D2AF9FAC30012E7D5 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFF152C2AF9FAC30012E7D5 /* SearchResponse.swift */; };
 		FF9F7BCC2B0259E00013128A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9F7BCB2B0259E00013128A /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
@@ -107,7 +107,7 @@
 		CCD8D6372AE83AF700FC3357 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		CCD8D6392AE83B1B00FC3357 /* PathType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathType.swift; sourceTree = "<group>"; };
 		CCDBFABF2AF8C0ED00985B2C /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
-		CCFF152C2AF9FAC30012E7D5 /* SearchResultResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultResponse.swift; sourceTree = "<group>"; };
+		CCFF152C2AF9FAC30012E7D5 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		FF9F7BCB2B0259E00013128A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -507,24 +507,24 @@
 		CCFF15292AF9FA790012E7D5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				CCFF152A2AF9FA910012E7D5 /* Alamofire */,
+				CCFF152A2AF9FA910012E7D5 /* Network */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		CCFF152A2AF9FA910012E7D5 /* Alamofire */ = {
+		CCFF152A2AF9FA910012E7D5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				CC8F10FF2AFA30CA0045B4C0 /* API */,
 				CCFF152B2AF9FA9B0012E7D5 /* Response */,
 			);
-			path = Alamofire;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		CCFF152B2AF9FA9B0012E7D5 /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				CCFF152C2AF9FAC30012E7D5 /* SearchResultResponse.swift */,
+				CCFF152C2AF9FAC30012E7D5 /* SearchResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -690,7 +690,7 @@
 				CC98DEB02AD9C126001A8ABD /* CustomTabBar.swift in Sources */,
 				CC4ED8BF2AD579650089F4F3 /* NearbyRestaurantView.swift in Sources */,
 				CC4ED8C52AD579AC0089F4F3 /* SearchType.swift in Sources */,
-				CCFF152D2AF9FAC30012E7D5 /* SearchResultResponse.swift in Sources */,
+				CCFF152D2AF9FAC30012E7D5 /* SearchResponse.swift in Sources */,
 				CC67704F2ADA83A80039A15B /* RestaurantListView.swift in Sources */,
 				CC59E4032AD419A100CE02C2 /* DangoPlateApp.swift in Sources */,
 				CCD8D6382AE83AF700FC3357 /* Path.swift in Sources */,

@@ -7,28 +7,29 @@
 
 import Foundation
 
-struct RestaurantBasicInfo: Hashable {
-    var thumbnail: String
-    var place_name: String
-    var address: String
+struct Restaurant: Hashable {
+    let id: String
+    let address: String
+    let placeName: String
+    let distance: String
+    let phone: String
+    let latitude: String
+    let longitude: String
+    let thumbnail: String
+
     var shortAddress: String {
-        let splitAddress = address.split(separator: " ").map { String($0) }
-        let shortAddress = splitAddress[1]
-        return shortAddress
+        let removedWhitespaceAddress = address.components(separatedBy: " ")
+        return removedWhitespaceAddress[1]
     }
     var numberOfReviews: Int
     var isWishList: Bool
     
-    init(
-        thumbnail: String = "",
-        place_name: String,
-        address: String,
-        numberOfReviews: Int = 0,
-        isWishList: Bool = false) {
-        self.thumbnail = thumbnail
-        self.place_name = place_name
-        self.address = address
-        self.numberOfReviews = numberOfReviews
-        self.isWishList = isWishList
+    // MEMO: - 초기화 문이 너무 길어 Factory Method로 대체
+    static func createRestaurant(information: Information) -> Restaurant {
+        return Restaurant(id: information.id, address: information.address, placeName: information.placeName, distance: information.distance, phone: information.phone, latitude: information.latitude, longitude: information.longitude, thumbnail: "", numberOfReviews: 0, isWishList: false)
+    }
+    
+    static func createDummyRestaurant(_ placeName: String, _ address: String, _ numberOfReviews: Int, _ isWishList: Bool ) -> Restaurant {
+        Restaurant(id: "", address: address, placeName: placeName, distance: "", phone: "", latitude: "", longitude: "", thumbnail: "", numberOfReviews: numberOfReviews, isWishList: isWishList)
     }
 }

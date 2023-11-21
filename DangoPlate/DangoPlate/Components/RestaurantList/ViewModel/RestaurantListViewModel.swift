@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 class RestaurantListViewModel: ObservableObject {
-    @Published var restaurantList: [RestaurantBasicInfo]
+    @Published var restaurantList: [Restaurant]
     @Published var searchRadius: SearchRadius
     @Published var categoryFilter: FilterType.Category
     @Published var foodTypeFilter: [FilterType.FoodType]
@@ -18,7 +18,7 @@ class RestaurantListViewModel: ObservableObject {
     var searchType: SearchType
     
     init (
-        restaurantList: [RestaurantBasicInfo] = [],
+        restaurantList: [Restaurant] = [],
         searchRadius: SearchRadius = .thirty,
         categoryFilter: FilterType.Category = .all,
         foodTypeFilter: [FilterType.FoodType] = [],
@@ -33,7 +33,7 @@ class RestaurantListViewModel: ObservableObject {
 }
 
 extension RestaurantListViewModel {
-    func addRestaurantList(basicInfo: RestaurantBasicInfo) {
+    func addRestaurantList(basicInfo: Restaurant) {
         restaurantList.append(basicInfo)
     }
     
@@ -46,22 +46,22 @@ extension RestaurantListViewModel {
         let queryParam = ["query": query + " 맛집"]
         let headers: HTTPHeaders = [.accept("application/json")]
         
-        var resultList = [RestaurantBasicInfo]()
+        var resultList = [Restaurant]()
 
         AF.request(requestURL, parameters: queryParam, headers: headers)
             .validate(statusCode: 200..<300)
-            .responseDecodable(of: SearchResultResponse.self) {
+            .responseDecodable(of: SearchResponse.self) {
             response in
             switch response.result {
-            case .success(let data):
-                for document in data.documents {
-                    let restaurant = RestaurantBasicInfo(place_name: document.place_name, address: document.address_name)
+            case .success(let res):
+                for document in res.data.documents {
+                    let restaurant = Restaurant.createRestaurant(information: document)
                     resultList.append(restaurant)
                 }
                 self.restaurantList = resultList
                 self.hasSearchResultList = true
             case .failure(let error):
-                print(error.localizedDescription)
+                print("Error: \(error.localizedDescription)")
             }
         }
     }

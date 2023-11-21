@@ -51,7 +51,7 @@ private struct RestaurantListGridView: View {
     fileprivate var body: some View {
         LazyVGrid(columns: [GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10)], spacing: 20) {
             ForEach(viewModel.restaurantList.indices, id: \.self) { idx in
-                RestaurantBasicInfoView(basicInfo: viewModel.restaurantList[idx], idx: idx + 1)
+                RestaurantBasicInfoView(restaurant: viewModel.restaurantList[idx], idx: idx + 1)
             }
         }
         .padding()
@@ -59,7 +59,7 @@ private struct RestaurantListGridView: View {
 }
 
 private struct RestaurantBasicInfoView: View {
-    let basicInfo: RestaurantBasicInfo
+    let restaurant: Restaurant
     let idx: Int
 
     fileprivate var body: some View {
@@ -68,18 +68,18 @@ private struct RestaurantBasicInfoView: View {
                 .aspectRatio(1, contentMode: .fit)
                 .foregroundStyle(.gray)
                 .overlay(alignment: .topTrailing) {
-                    basicInfo.isWishList ? Image("like_selected") : Image("like_noSelected")
+                    restaurant.isWishList ? Image("like_selected") : Image("like_noSelected")
                 }
             Group {
-                Text("\(idx). \(basicInfo.place_name)")
+                Text("\(idx). \(restaurant.placeName)")
                     .font(.system(size: 15, weight: .regular))
-                Text(basicInfo.shortAddress)
+                Text(restaurant.shortAddress)
                     .foregroundStyle(.gray)
                     .font(.system(size: 10, weight: .light))
                 HStack(spacing: 1) {
                     Image(systemName: "pencil")
                         .renderingMode(/*@START_MENU_TOKEN@*/.template/*@END_MENU_TOKEN@*/)
-                    Text("\(basicInfo.numberOfReviews)")
+                    Text("\(restaurant.numberOfReviews)")
                 }
                 .foregroundStyle(.gray)
                 .font(.caption)
