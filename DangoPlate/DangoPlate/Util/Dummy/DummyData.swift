@@ -14,7 +14,7 @@ struct DummyData {
 extension DummyData {
     private static func createDummyData() -> Restaurant {
         let placeName = str.createRandomString(len: Int.random(in: 3...6))
-        let address = str.createRandomString(len: 3) + " " + str.createRandomString(len: 2) + "구" + " " + str.createRandomString(len: 4)
+        let address = str.createRandomString(len: 3) + " " + str.createRandomString(len: 2) + "구" + " " + str.createRandomString(len: 3) + "동"
         let numberOfReviews = Int.random(in: 0...50)
         let isWishList = Bool.random()
         

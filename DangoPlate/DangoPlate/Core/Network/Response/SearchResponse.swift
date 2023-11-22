@@ -9,6 +9,7 @@ import Foundation
 
 struct Information: Codable {
     let address: String
+    let roadAddress: String
     let placeName: String
     let distance: String
     let id: String
@@ -17,7 +18,8 @@ struct Information: Codable {
     let longitude: String
    
     enum CodingKeys: String, CodingKey {
-        case address = "road_address_name"
+        case address = "address_name"
+        case roadAddress = "road_address_name"
         case placeName = "place_name"
         case latitude = "y"
         case longitude = "x"

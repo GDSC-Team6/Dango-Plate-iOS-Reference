@@ -40,6 +40,7 @@
 		CC98DEAE2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98DEAD2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift */; };
 		CC98DEB02AD9C126001A8ABD /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98DEAF2AD9C126001A8ABD /* CustomTabBar.swift */; };
 		CCB94A3B2B0DAC2600F122DD /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB94A3A2B0DAC2600F122DD /* UINavigationController+Extension.swift */; };
+		CCB94A3E2B0DC67F00F122DD /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB94A3D2B0DC67F00F122DD /* LocationService.swift */; };
 		CCD8D6302AE8250300FC3357 /* SearchRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8D62F2AE8250300FC3357 /* SearchRadius.swift */; };
 		CCD8D6322AE8273E00FC3357 /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8D6312AE8273E00FC3357 /* SortType.swift */; };
 		CCD8D6342AE827C200FC3357 /* FilterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8D6332AE827C200FC3357 /* FilterType.swift */; };
@@ -103,6 +104,7 @@
 		CC98DEAD2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewModel.swift; sourceTree = "<group>"; };
 		CC98DEAF2AD9C126001A8ABD /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		CCB94A3A2B0DAC2600F122DD /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		CCB94A3D2B0DC67F00F122DD /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		CCD8D62F2AE8250300FC3357 /* SearchRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRadius.swift; sourceTree = "<group>"; };
 		CCD8D6312AE8273E00FC3357 /* SortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
 		CCD8D6332AE827C200FC3357 /* FilterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterType.swift; sourceTree = "<group>"; };
@@ -498,6 +500,14 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		CCB94A3C2B0DC57200F122DD /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				CCB94A3D2B0DC67F00F122DD /* LocationService.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		CCD8D6362AE83ADF00FC3357 /* Path */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,6 +520,7 @@
 		CCFF15292AF9FA790012E7D5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				CCB94A3C2B0DC57200F122DD /* Location */,
 				CCFF152A2AF9FA910012E7D5 /* Network */,
 			);
 			path = Core;
@@ -687,6 +698,7 @@
 				CC4ED8B92AD5793F0089F4F3 /* RestaurantViewModel.swift in Sources */,
 				CC4ED8B52AD579190089F4F3 /* MyPageViewModel.swift in Sources */,
 				CC4ED8C12AD5796F0089F4F3 /* NearbyRestaurantViewModel.swift in Sources */,
+				CCB94A3E2B0DC67F00F122DD /* LocationService.swift in Sources */,
 				CCDBFAC02AF8C0ED00985B2C /* Color+Extensions.swift in Sources */,
 				CC4ED8AF2AD578E60089F4F3 /* OAuthView.swift in Sources */,
 				CCD8D63A2AE83B1B00FC3357 /* PathType.swift in Sources */,
@@ -869,6 +881,7 @@
 				DEVELOPMENT_TEAM = YWNQ4RZBTS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 기반으로 주변 맛집 정보를 제공하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -903,6 +916,7 @@
 				DEVELOPMENT_TEAM = YWNQ4RZBTS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 기반으로 주변 맛집 정보를 제공하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

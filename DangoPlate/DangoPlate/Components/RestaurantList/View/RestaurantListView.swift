@@ -73,6 +73,8 @@ private struct RestaurantBasicInfoView: View {
             Group {
                 Text("\(idx). \(restaurant.placeName)")
                     .font(.system(size: 15, weight: .regular))
+                    .lineLimit(1)
+                    .truncationMode(/*@START_MENU_TOKEN@*/.tail/*@END_MENU_TOKEN@*/)
                 Text(restaurant.shortAddress)
                     .foregroundStyle(.gray)
                     .font(.system(size: 10, weight: .light))
@@ -89,5 +91,5 @@ private struct RestaurantBasicInfoView: View {
 }
 
 #Preview {
-    RestaurantListView(restaurantListViewModel: RestaurantListViewModel(restaurantList: DummyData.createDummyList(capacity: 20), searchType: .nearyBy))
+    RestaurantListView(restaurantListViewModel: RestaurantListViewModel(searchType: .nearyBy, restaurantList: DummyData.createDummyList(capacity: 20)))
 }

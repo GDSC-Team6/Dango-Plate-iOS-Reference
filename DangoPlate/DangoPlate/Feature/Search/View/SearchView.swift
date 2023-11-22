@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     @EnvironmentObject private var pathModel: PathModel
-    @StateObject private var restaurantListViewModel = RestaurantListViewModel(searchType: .keyword)
+    @StateObject var restaurantListViewModel = RestaurantListViewModel(searchType: .keyword)
     @FocusState private var isSearchFieldFocused: Bool
     @State private var query = ""
 
@@ -33,7 +33,7 @@ struct SearchView: View {
                     .focused($isSearchFieldFocused)
                     .autocorrectionDisabled()
                     .onSubmit {
-                        restaurantListViewModel.loadRestaurantList(query)
+                        restaurantListViewModel.updateRestaurantList(query)
                     }
                     .onAppear {
                         isSearchFieldFocused = true

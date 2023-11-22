@@ -10,6 +10,7 @@ import Foundation
 struct Restaurant: Hashable {
     let id: String
     let address: String
+    let roadAddress: String
     let placeName: String
     let distance: String
     let phone: String
@@ -19,17 +20,17 @@ struct Restaurant: Hashable {
 
     var shortAddress: String {
         let removedWhitespaceAddress = address.components(separatedBy: " ")
-        return removedWhitespaceAddress[1]
+        return removedWhitespaceAddress[1] + " " + removedWhitespaceAddress[2]
     }
     var numberOfReviews: Int
     var isWishList: Bool
     
     // MEMO: - 초기화 문이 너무 길어 Factory Method로 대체
     static func createRestaurant(information: Information) -> Restaurant {
-        return Restaurant(id: information.id, address: information.address, placeName: information.placeName, distance: information.distance, phone: information.phone, latitude: information.latitude, longitude: information.longitude, thumbnail: "", numberOfReviews: 0, isWishList: false)
+        return Restaurant(id: information.id, address: information.address, roadAddress: information.roadAddress, placeName: information.placeName, distance: information.distance, phone: information.phone, latitude: information.latitude, longitude: information.longitude, thumbnail: "", numberOfReviews: 0, isWishList: false)
     }
     
     static func createDummyRestaurant(_ placeName: String, _ address: String, _ numberOfReviews: Int, _ isWishList: Bool ) -> Restaurant {
-        Restaurant(id: "", address: address, placeName: placeName, distance: "", phone: "", latitude: "", longitude: "", thumbnail: "", numberOfReviews: numberOfReviews, isWishList: isWishList)
+        Restaurant(id: "", address: address, roadAddress: "", placeName: placeName, distance: "", phone: "", latitude: "", longitude: "", thumbnail: "", numberOfReviews: numberOfReviews, isWishList: isWishList)
     }
 }
