@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct RestaurantListView: View {
-    @StateObject private var restaurantListViewModel = RestaurantListViewModel(restaurantList: DummyData.createDummyList(capacity: 20))
+    @ObservedObject var restaurantListViewModel: RestaurantListViewModel
 
     var body: some View {
         ScrollView {
-            RestaurantListOptionView()
+            RestaurantListOptionView(searchType: restaurantListViewModel.searchType)
             Divider()
             RestaurantListGridView(viewModel: restaurantListViewModel)
         }
@@ -21,16 +21,21 @@ struct RestaurantListView: View {
 }
 
 private struct RestaurantListOptionView: View {
+    fileprivate var searchType: SearchType
+    
     fileprivate var body: some View {
         HStack {
             Text("평점순")
                 .foregroundStyle(.gray)
             Spacer()
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
-            })
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
+            
+            if (searchType == .nearyBy) {
+                Button(action: {} , label: {
+                    Image("500m")
+                })
+            }
+            Button(action: {}, label: {
+                Image("filter_noSelected")
             })
         }
         .frame(height: 20)
@@ -46,7 +51,7 @@ private struct RestaurantListGridView: View {
     fileprivate var body: some View {
         LazyVGrid(columns: [GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10)], spacing: 20) {
             ForEach(viewModel.restaurantList.indices, id: \.self) { idx in
-                RestaurantBasicInfoView(basicInfo: viewModel.restaurantList[idx], idx: idx + 1)
+                RestaurantBasicInfoView(restaurant: viewModel.restaurantList[idx], idx: idx + 1)
             }
         }
         .padding()
@@ -54,7 +59,7 @@ private struct RestaurantListGridView: View {
 }
 
 private struct RestaurantBasicInfoView: View {
-    let basicInfo: RestaurantBasicInfo
+    let restaurant: Restaurant
     let idx: Int
 
     fileprivate var body: some View {
@@ -63,23 +68,20 @@ private struct RestaurantBasicInfoView: View {
                 .aspectRatio(1, contentMode: .fit)
                 .foregroundStyle(.gray)
                 .overlay(alignment: .topTrailing) {
-                    Circle()
-                        .frame(width: 40, height: 40)
-                        .foregroundStyle(
-                            basicInfo.isWishList ? .orange : .white
-                        )
-                        .padding(.all, 5)
+                    restaurant.isWishList ? Image("like_selected") : Image("like_noSelected")
                 }
             Group {
-                Text("\(idx). \(basicInfo.name)")
-                    .font(.system(size: 17, weight: .regular))
-                Text(basicInfo.shortAddress)
+                Text("\(idx). \(restaurant.placeName)")
+                    .font(.system(size: 15, weight: .regular))
+                    .lineLimit(1)
+                    .truncationMode(/*@START_MENU_TOKEN@*/.tail/*@END_MENU_TOKEN@*/)
+                Text(restaurant.shortAddress)
                     .foregroundStyle(.gray)
-                    .font(.system(size: 13, weight: .light))
+                    .font(.system(size: 10, weight: .light))
                 HStack(spacing: 1) {
                     Image(systemName: "pencil")
                         .renderingMode(/*@START_MENU_TOKEN@*/.template/*@END_MENU_TOKEN@*/)
-                    Text("\(basicInfo.numberOfReviews)")
+                    Text("\(restaurant.numberOfReviews)")
                 }
                 .foregroundStyle(.gray)
                 .font(.caption)
@@ -89,6 +91,5 @@ private struct RestaurantBasicInfoView: View {
 }
 
 #Preview {
-    RestaurantListView()
-//    RestaurantBasicInfoView(basicInfo: .init(thumbnail: "", name: "크라이치즈버거", shortAddress: "역곡동", numberOfReviews: 32, isWishList: false), idx: 1)
+    RestaurantListView(restaurantListViewModel: RestaurantListViewModel(searchType: .nearyBy, restaurantList: DummyData.createDummyList(capacity: 20)))
 }

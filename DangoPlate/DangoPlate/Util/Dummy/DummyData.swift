@@ -12,17 +12,17 @@ struct DummyData {
 }
 
 extension DummyData {
-    private static func createDummyData() -> RestaurantBasicInfo {
-        let name = str.createRandomString(len: Int.random(in: 3...6))
-        let shortAddress = str.createRandomString(len: 2) + "구"
+    private static func createDummyData() -> Restaurant {
+        let placeName = str.createRandomString(len: Int.random(in: 3...6))
+        let address = str.createRandomString(len: 3) + " " + str.createRandomString(len: 2) + "구" + " " + str.createRandomString(len: 3) + "동"
         let numberOfReviews = Int.random(in: 0...50)
         let isWishList = Bool.random()
         
-        return RestaurantBasicInfo(thumbnail: "", name: name, shortAddress: shortAddress, numberOfReviews: numberOfReviews, isWishList: isWishList)
+        return Restaurant.createDummyRestaurant(placeName, address, numberOfReviews, isWishList)
     }
     
-    static func createDummyList(capacity: Int) -> [RestaurantBasicInfo] {
-        let dummyList: [RestaurantBasicInfo] = (0..<capacity).map { _ in self.createDummyData() }
+    static func createDummyList(capacity: Int) -> [Restaurant] {
+        let dummyList: [Restaurant] = (0..<capacity).map { _ in self.createDummyData() }
         return dummyList
     }
 }

@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct NearbyRestaurantView: View {
+    @StateObject var restaurantListViewModel: RestaurantListViewModel
+
     var body: some View {
         VStack {
             HeaderView()
             Divider()
-            RestaurantListView()
+            RestaurantListView(restaurantListViewModel: restaurantListViewModel)
+        }
+        .onAppear() {
+            restaurantListViewModel.loadRestaurantList("")
         }
     }
 }
@@ -36,5 +41,5 @@ struct HeaderView: View {
 }
 
 #Preview {
-    NearbyRestaurantView()
+    NearbyRestaurantView(restaurantListViewModel: RestaurantListViewModel(searchType: .nearyBy, latitude: "37.5", longitude: "129.121"))
 }
