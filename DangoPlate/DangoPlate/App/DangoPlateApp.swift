@@ -6,23 +6,28 @@
 //
 
 import SwiftUI
+import KakaoSDKCommon
+import KakaoSDKAuth
+import KakaoSDKUser
+
+// DangoPlateApp.swift
 
 @main
 struct DangoPlateApp: App {
-
-//    @StateObject var userAuth: OAuthViewModel = OAuthViewModel()
-    
+    @StateObject private var loginManager = LoginManager.shared
+    @StateObject private var oauthViewModel = OAuthViewModel()
+    init() {
+           // Kakao SDK 초기화
+        KakaoSDK.initSDK(appKey: "\(API.APP_KEY)")
+       }
     var body: some Scene {
         WindowGroup {
-//      앞으로 이런 구조로 가야함
-//            if userAuth.isLoggedIn {
-//                LayoutView()
-//                    .environmentObject(userAuth)
-//            } else {
-//                OAuthView()
-//                    .environmentObject(userAuth)
-//            }
-            OAuthView()
+            if loginManager.isLoggedIn {
+                LayoutView()
+            } else {
+                OAuthView(viewModel: oauthViewModel)
+            }
         }
+        
     }
 }
