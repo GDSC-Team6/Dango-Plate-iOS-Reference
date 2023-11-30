@@ -47,6 +47,7 @@
 		CCDBFAC02AF8C0ED00985B2C /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDBFABF2AF8C0ED00985B2C /* Color+Extensions.swift */; };
 		CCFF152D2AF9FAC30012E7D5 /* SearchResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFF152C2AF9FAC30012E7D5 /* SearchResultResponse.swift */; };
 		FF9F7BCC2B0259E00013128A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9F7BCB2B0259E00013128A /* ProfileView.swift */; };
+		FFB6CFAE2B180DCB00D56572 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB6CFAD2B180DCB00D56572 /* Keychain.swift */; };
 		FFEE0DA42B0E10B90090C1FE /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FFEE0DA32B0E10B90090C1FE /* KakaoSDKAuth */; };
 		FFEE0DA62B0E10B90090C1FE /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = FFEE0DA52B0E10B90090C1FE /* KakaoSDKCommon */; };
 		FFEE0DA82B0E10B90090C1FE /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = FFEE0DA72B0E10B90090C1FE /* KakaoSDKUser */; };
@@ -114,6 +115,7 @@
 		CCDBFABF2AF8C0ED00985B2C /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		CCFF152C2AF9FAC30012E7D5 /* SearchResultResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultResponse.swift; sourceTree = "<group>"; };
 		FF9F7BCB2B0259E00013128A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FFB6CFAD2B180DCB00D56572 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		FFEE0D882B0DFEB70090C1FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FFF8733B2B13975400276698 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -501,6 +503,7 @@
 		CCA836592AD57A3A008FE679 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				FFB6CFAC2B180DA900D56572 /* Keychains  */,
 				CC33DD7F2AE8C6F300F392D4 /* Extension */,
 				CC33DD7C2AE8C49500F392D4 /* Dummy */,
 			);
@@ -540,6 +543,14 @@
 				CCFF152C2AF9FAC30012E7D5 /* SearchResultResponse.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		FFB6CFAC2B180DA900D56572 /* Keychains  */ = {
+			isa = PBXGroup;
+			children = (
+				FFB6CFAD2B180DCB00D56572 /* Keychain.swift */,
+			);
+			path = "Keychains ";
 			sourceTree = "<group>";
 		};
 		FFF8733A2B13974500276698 /* Login */ = {
@@ -727,6 +738,7 @@
 				CC8F11012AFA30DD0045B4C0 /* API.swift in Sources */,
 				FF9F7BCC2B0259E00013128A /* ProfileView.swift in Sources */,
 				CC33DD7E2AE8C4AE00F392D4 /* DummyData.swift in Sources */,
+				FFB6CFAE2B180DCB00D56572 /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
