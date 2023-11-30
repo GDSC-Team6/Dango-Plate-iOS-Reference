@@ -46,7 +46,6 @@
 		CCD8D63A2AE83B1B00FC3357 /* PathType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8D6392AE83B1B00FC3357 /* PathType.swift */; };
 		CCDBFAC02AF8C0ED00985B2C /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDBFABF2AF8C0ED00985B2C /* Color+Extensions.swift */; };
 		CCFF152D2AF9FAC30012E7D5 /* SearchResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFF152C2AF9FAC30012E7D5 /* SearchResultResponse.swift */; };
-		FF9F7BCC2B0259E00013128A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9F7BCB2B0259E00013128A /* ProfileView.swift */; };
 		FFB6CFAE2B180DCB00D56572 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB6CFAD2B180DCB00D56572 /* Keychain.swift */; };
 		FFEE0DA42B0E10B90090C1FE /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FFEE0DA32B0E10B90090C1FE /* KakaoSDKAuth */; };
 		FFEE0DA62B0E10B90090C1FE /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = FFEE0DA52B0E10B90090C1FE /* KakaoSDKCommon */; };
@@ -114,7 +113,6 @@
 		CCD8D6392AE83B1B00FC3357 /* PathType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathType.swift; sourceTree = "<group>"; };
 		CCDBFABF2AF8C0ED00985B2C /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		CCFF152C2AF9FAC30012E7D5 /* SearchResultResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultResponse.swift; sourceTree = "<group>"; };
-		FF9F7BCB2B0259E00013128A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		FFB6CFAD2B180DCB00D56572 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		FFEE0D882B0DFEB70090C1FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FFF8733B2B13975400276698 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -230,7 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				CC4ED8B22AD5790B0089F4F3 /* MyPageView.swift */,
-				FF9F7BCB2B0259E00013128A /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -736,7 +733,6 @@
 				CC4ED8B32AD5790B0089F4F3 /* MyPageView.swift in Sources */,
 				CC33DD812AE8C70100F392D4 /* String+Extensions.swift in Sources */,
 				CC8F11012AFA30DD0045B4C0 /* API.swift in Sources */,
-				FF9F7BCC2B0259E00013128A /* ProfileView.swift in Sources */,
 				CC33DD7E2AE8C4AE00F392D4 /* DummyData.swift in Sources */,
 				FFB6CFAE2B180DCB00D56572 /* Keychain.swift in Sources */,
 			);

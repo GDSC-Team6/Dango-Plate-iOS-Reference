@@ -87,6 +87,17 @@ class LoginManager : ObservableObject{
         }
     }
 
+    func logout() {
+        do {
+            try keychain.remove("accessToken")
+            try keychain.remove("refreshToken")
+            DispatchQueue.main.async {
+                self.isLoggedIn = false
+            }
+        } catch {
+            print("Error removing tokens from keychain: \(error)")
+        }
+    }
 
     
 }
