@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct NearbyRestaurantView: View {
-    @StateObject var restaurantListViewModel: RestaurantListViewModel
+    @ObservedObject var restaurantGridViewModel: RestaurantGridViewModel
 
     var body: some View {
         VStack {
             HeaderView()
             Divider()
-            RestaurantListView(restaurantListViewModel: restaurantListViewModel)
+            RestaurantGridView(restaurantGridViewModel: restaurantGridViewModel)
         }
         .onAppear() {
-            restaurantListViewModel.loadRestaurantList("")
+            restaurantGridViewModel.loadRestaurantList("")
         }
     }
 }
@@ -25,6 +25,7 @@ struct NearbyRestaurantView: View {
 struct HeaderView: View {
     var body: some View {
         HStack {
+            // TODO: - 위도 경도로 어디 지역인지 알아와야 함
             VStack(alignment: .leading) {
                 Text("지금 보고있는 지역은")
                     .font(.caption)
@@ -41,5 +42,5 @@ struct HeaderView: View {
 }
 
 #Preview {
-    NearbyRestaurantView(restaurantListViewModel: RestaurantListViewModel(searchType: .nearyBy, latitude: "37.5", longitude: "129.121"))
+    NearbyRestaurantView(restaurantGridViewModel: RestaurantGridViewModel(searchType: .nearyBy))
 }

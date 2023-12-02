@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC193E9A2B15ECF7009B31B0 /* SelectedSearchRadiusModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC193E992B15ECF7009B31B0 /* SelectedSearchRadiusModalView.swift */; };
 		CC33DD7E2AE8C4AE00F392D4 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC33DD7D2AE8C4AE00F392D4 /* DummyData.swift */; };
 		CC33DD812AE8C70100F392D4 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC33DD802AE8C70100F392D4 /* String+Extensions.swift */; };
 		CC4ED8AF2AD578E60089F4F3 /* OAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4ED8AE2AD578E60089F4F3 /* OAuthView.swift */; };
@@ -32,8 +33,8 @@
 		CC59E4202AD419A200CE02C2 /* DangoPlateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC59E41F2AD419A200CE02C2 /* DangoPlateUITestsLaunchTests.swift */; };
 		CC59E42E2AD41E7700CE02C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC59E42D2AD41E7700CE02C2 /* Launch Screen.storyboard */; };
 		CC59E4332AD5732C00CE02C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC59E4322AD5732C00CE02C2 /* AppDelegate.swift */; };
-		CC67704F2ADA83A80039A15B /* RestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC67704E2ADA83A80039A15B /* RestaurantListView.swift */; };
-		CC6770512ADA83BB0039A15B /* RestaurantListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6770502ADA83BB0039A15B /* RestaurantListViewModel.swift */; };
+		CC67704F2ADA83A80039A15B /* RestaurantGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC67704E2ADA83A80039A15B /* RestaurantGridView.swift */; };
+		CC6770512ADA83BB0039A15B /* RestaurantGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6770502ADA83BB0039A15B /* RestaurantGridViewModel.swift */; };
 		CC8F11012AFA30DD0045B4C0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8F11002AFA30DD0045B4C0 /* API.swift */; };
 		CC8FF9CF2AD66F3200D7288E /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8FF9CE2AD66F3200D7288E /* LayoutView.swift */; };
 		CC98DEAC2AD9C09E001A8ABD /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98DEAB2AD9C09E001A8ABD /* CustomTabBarView.swift */; };
@@ -69,6 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC193E992B15ECF7009B31B0 /* SelectedSearchRadiusModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedSearchRadiusModalView.swift; sourceTree = "<group>"; };
 		CC33DD7D2AE8C4AE00F392D4 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		CC33DD802AE8C70100F392D4 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		CC4ED8AE2AD578E60089F4F3 /* OAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthView.swift; sourceTree = "<group>"; };
@@ -96,8 +98,8 @@
 		CC59E41F2AD419A200CE02C2 /* DangoPlateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangoPlateUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CC59E42D2AD41E7700CE02C2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CC59E4322AD5732C00CE02C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CC67704E2ADA83A80039A15B /* RestaurantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListView.swift; sourceTree = "<group>"; };
-		CC6770502ADA83BB0039A15B /* RestaurantListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewModel.swift; sourceTree = "<group>"; };
+		CC67704E2ADA83A80039A15B /* RestaurantGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantGridView.swift; sourceTree = "<group>"; };
+		CC6770502ADA83BB0039A15B /* RestaurantGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantGridViewModel.swift; sourceTree = "<group>"; };
 		CC8F11002AFA30DD0045B4C0 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CC8FF9CE2AD66F3200D7288E /* LayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
 		CC98DEAB2AD9C09E001A8ABD /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		CC98DEAF2AD9C126001A8ABD /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		CCB94A3A2B0DAC2600F122DD /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		CCB94A3D2B0DC67F00F122DD /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		CCD5D3402B1365A3005C307C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CCD8D62F2AE8250300FC3357 /* SearchRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRadius.swift; sourceTree = "<group>"; };
 		CCD8D6312AE8273E00FC3357 /* SortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
 		CCD8D6332AE827C200FC3357 /* FilterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterType.swift; sourceTree = "<group>"; };
@@ -141,6 +144,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC193E962B15ECB7009B31B0 /* CustomModal */ = {
+			isa = PBXGroup;
+			children = (
+				CC5D46E12B164A5F0083B7FE /* SearchRadius */,
+			);
+			path = CustomModal;
+			sourceTree = "<group>";
+		};
+		CC193E972B15ECC2009B31B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC193E992B15ECF7009B31B0 /* SelectedSearchRadiusModalView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CC33DD7C2AE8C49500F392D4 /* Dummy */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +353,7 @@
 		CC59E4012AD419A100CE02C2 /* DangoPlate */ = {
 			isa = PBXGroup;
 			children = (
+				CCD5D3402B1365A3005C307C /* Info.plist */,
 				CC59E42C2AD419D000CE02C2 /* App */,
 				CCFF15292AF9FA790012E7D5 /* Core */,
 				CC98DEA72AD9C057001A8ABD /* Components */,
@@ -416,19 +436,27 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		CC67704B2ADA7F710039A15B /* RestaurantList */ = {
+		CC5D46E12B164A5F0083B7FE /* SearchRadius */ = {
+			isa = PBXGroup;
+			children = (
+				CC193E972B15ECC2009B31B0 /* View */,
+			);
+			path = SearchRadius;
+			sourceTree = "<group>";
+		};
+		CC67704B2ADA7F710039A15B /* RestaurantGrid */ = {
 			isa = PBXGroup;
 			children = (
 				CC67704D2ADA7FB80039A15B /* View */,
 				CC67704C2ADA7FB30039A15B /* ViewModel */,
 			);
-			path = RestaurantList;
+			path = RestaurantGrid;
 			sourceTree = "<group>";
 		};
 		CC67704C2ADA7FB30039A15B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				CC6770502ADA83BB0039A15B /* RestaurantListViewModel.swift */,
+				CC6770502ADA83BB0039A15B /* RestaurantGridViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -436,7 +464,7 @@
 		CC67704D2ADA7FB80039A15B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CC67704E2ADA83A80039A15B /* RestaurantListView.swift */,
+				CC67704E2ADA83A80039A15B /* RestaurantGridView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -460,7 +488,8 @@
 		CC98DEA72AD9C057001A8ABD /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				CC67704B2ADA7F710039A15B /* RestaurantList */,
+				CC193E962B15ECB7009B31B0 /* CustomModal */,
+				CC67704B2ADA7F710039A15B /* RestaurantGrid */,
 				CC98DEA82AD9C06E001A8ABD /* CustomTabBar */,
 			);
 			path = Components;
@@ -692,7 +721,7 @@
 				CCD8D6322AE8273E00FC3357 /* SortType.swift in Sources */,
 				CC4ED8CB2AD579CE0089F4F3 /* MyPage.swift in Sources */,
 				CCD8D6302AE8250300FC3357 /* SearchRadius.swift in Sources */,
-				CC6770512ADA83BB0039A15B /* RestaurantListViewModel.swift in Sources */,
+				CC6770512ADA83BB0039A15B /* RestaurantGridViewModel.swift in Sources */,
 				CC4ED8C32AD5799E0089F4F3 /* Home.swift in Sources */,
 				CCD8D6342AE827C200FC3357 /* FilterType.swift in Sources */,
 				CC4ED8B92AD5793F0089F4F3 /* RestaurantViewModel.swift in Sources */,
@@ -706,7 +735,8 @@
 				CC4ED8BF2AD579650089F4F3 /* NearbyRestaurantView.swift in Sources */,
 				CC4ED8C52AD579AC0089F4F3 /* SearchType.swift in Sources */,
 				CCFF152D2AF9FAC30012E7D5 /* SearchResponse.swift in Sources */,
-				CC67704F2ADA83A80039A15B /* RestaurantListView.swift in Sources */,
+				CC67704F2ADA83A80039A15B /* RestaurantGridView.swift in Sources */,
+				CC193E9A2B15ECF7009B31B0 /* SelectedSearchRadiusModalView.swift in Sources */,
 				CC59E4032AD419A100CE02C2 /* DangoPlateApp.swift in Sources */,
 				CCD8D6382AE83AF700FC3357 /* Path.swift in Sources */,
 				CC4ED8B32AD5790B0089F4F3 /* MyPageView.swift in Sources */,
@@ -881,6 +911,7 @@
 				DEVELOPMENT_TEAM = YWNQ4RZBTS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DangoPlate/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 기반으로 주변 맛집 정보를 제공하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -916,6 +947,7 @@
 				DEVELOPMENT_TEAM = YWNQ4RZBTS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DangoPlate/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 기반으로 주변 맛집 정보를 제공하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

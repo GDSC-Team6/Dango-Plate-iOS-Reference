@@ -11,36 +11,17 @@ import CoreLocation
 // TODO: - 제일 처음 권한 요청일 때는 현재 위치를 못받아오는 문제 해결하기
 // https://object-world.tistory.com/20
 
+struct LocationService {
+    static func requestUserLocation() -> (latitude: String, longitude: String) {
+        let locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
 
-class LocationService: ObservableObject {
-    @Published var latitude: String = ""
-    @Published var longitude: String = ""
-    
-    private var locationManager: CLLocationManager {
-        let manager = CLLocationManager()
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestWhenInUseAuthorization()
-        return manager
-    }
-}
+        locationManager.requestWhenInUseAuthorization()
 
-extension LocationService {
-    
-    static func createLocationService() -> LocationService {
-        let locationService = LocationService()
-        locationService.requestUserLocation()
-        
-        return locationService
-    }
-    
-    func requestUserLocation() {
         guard let userLocation = locationManager.location?.coordinate else {
-            self.latitude = "37.4862"
-            self.longitude = "126.8023"
-            return
+            return (latitude: "37.4862", longitude: "126.8023")
         }
         
-        self.latitude = String(userLocation.latitude)
-        self.longitude = String(userLocation.longitude)
+        return (latitude: String(userLocation.latitude), longitude: String(userLocation.longitude))
     }
 }

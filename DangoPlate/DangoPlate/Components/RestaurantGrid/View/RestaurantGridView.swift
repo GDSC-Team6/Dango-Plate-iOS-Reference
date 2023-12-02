@@ -1,5 +1,5 @@
 //
-//  RestaurantListView.swift
+//  RestaurantGridView.swift
 //  DangoPlate
 //
 //  Created by Jinyoung Yoo on 10/14/23.
@@ -7,46 +7,64 @@
 
 import SwiftUI
 
-struct RestaurantListView: View {
-    @ObservedObject var restaurantListViewModel: RestaurantListViewModel
+struct RestaurantGridView: View {
+    @ObservedObject var restaurantGridViewModel: RestaurantGridViewModel
 
     var body: some View {
         ScrollView {
-            RestaurantListOptionView(searchType: restaurantListViewModel.searchType)
+            RestaurantListOptionView(restaurantGridViewModel: restaurantGridViewModel)
             Divider()
-            RestaurantListGridView(viewModel: restaurantListViewModel)
+            RestaurantListGridView(viewModel: restaurantGridViewModel)
         }
         .scrollIndicators(.never)
     }
 }
 
 private struct RestaurantListOptionView: View {
-    fileprivate var searchType: SearchType
-    
+    @ObservedObject var restaurantGridViewModel: RestaurantGridViewModel
+    @State private var showModal = false
+
     fileprivate var body: some View {
         HStack {
             Text("평점순")
                 .foregroundStyle(.gray)
             Spacer()
             
-            if (searchType == .nearyBy) {
-                Button(action: {} , label: {
-                    Image("500m")
+            if (restaurantGridViewModel.searchType == .nearyBy) {
+                Button(action: {
+                    showModal.toggle()
+                } , label: {
+                    switch restaurantGridViewModel.searchRadius {
+                    case .narrow(_, let narrow):
+                        Image(narrow)
+                    case .mediumNarrow(_, let mediumNarrow):
+                        Image(mediumNarrow)
+                    case .medium(_, let medium):
+                        Image(medium)
+                    case .mediumWide(_, let mediumWide):
+                        Image(mediumWide)
+                    case .wide(_, let wide):
+                        Image(wide)
+                    }
                 })
             }
             Button(action: {}, label: {
                 Image("filter_noSelected")
             })
         }
+        .fullScreenCover(isPresented: $showModal) {
+            SelectedSearchRadiusModalView(restaurantGridViewModel: restaurantGridViewModel, showModal: $showModal)
+        }
+        .transaction { transaction in
+            transaction.disablesAnimations = true
+        }
         .frame(height: 20)
         .padding()
     }
 }
 
-// TODO: - 그리드 아이템끼리 간격 양 옆 패딩 간격이랑 맞추기!!!!1
-
 private struct RestaurantListGridView: View {
-    @ObservedObject var viewModel: RestaurantListViewModel
+    @ObservedObject var viewModel: RestaurantGridViewModel
 
     fileprivate var body: some View {
         LazyVGrid(columns: [GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10)], spacing: 20) {
@@ -61,6 +79,13 @@ private struct RestaurantListGridView: View {
 private struct RestaurantBasicInfoView: View {
     let restaurant: Restaurant
     let idx: Int
+    var addresField: String {
+        if (restaurant.distance.isEmpty) {
+            return restaurant.shortAddress
+        } else {
+            return restaurant.shortAddress + " " + restaurant.distance + "m"
+        }
+    }
 
     fileprivate var body: some View {
         VStack(alignment: .leading) {
@@ -75,9 +100,9 @@ private struct RestaurantBasicInfoView: View {
                     .font(.system(size: 15, weight: .regular))
                     .lineLimit(1)
                     .truncationMode(/*@START_MENU_TOKEN@*/.tail/*@END_MENU_TOKEN@*/)
-                Text(restaurant.shortAddress)
+                Text(addresField)
                     .foregroundStyle(.gray)
-                    .font(.system(size: 10, weight: .light))
+                    .font(.system(size: 9, weight: .light))
                 HStack(spacing: 1) {
                     Image(systemName: "pencil")
                         .renderingMode(/*@START_MENU_TOKEN@*/.template/*@END_MENU_TOKEN@*/)
@@ -91,5 +116,5 @@ private struct RestaurantBasicInfoView: View {
 }
 
 #Preview {
-    RestaurantListView(restaurantListViewModel: RestaurantListViewModel(searchType: .nearyBy, restaurantList: DummyData.createDummyList(capacity: 20)))
+    RestaurantGridView(restaurantGridViewModel: RestaurantGridViewModel(searchType: .nearyBy, restaurantList: DummyData.createDummyList(capacity: 20)))
 }
