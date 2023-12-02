@@ -9,18 +9,8 @@ import SwiftUI
 import Alamofire
 
 struct EditProfileView: View {
-    @State private var name: String = UserDefaults.standard.string(forKey: "userName") ?? ""
-    @State private var birthDate: Date = UserDefaults.standard.object(forKey: "birthDate") as? Date ?? Date()
-    @State private var phoneNumber: String = UserDefaults.standard.string(forKey: "phoneNumber") ?? ""
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var loginManager : ProfileHeaderViewModel
-    func saveProfile() {
-        UserDefaults.standard.set(name, forKey: "")
-        UserDefaults.standard.set(birthDate, forKey: "birthDate")
-        UserDefaults.standard.set(phoneNumber, forKey: "phoneNumber")
-        // UserDefaults에 저장 후 필요한 작업 수행, 예를 들어 화면을 닫는다든지, 성공 메시지를 표시한다든지 등
-    }
-    
+    @StateObject private var editProfileViewModel = MyPageViewModel()
     var body: some View {
         NavigationView {
             List {
@@ -28,17 +18,17 @@ struct EditProfileView: View {
                     HStack {
                         Text("이름")
                         Spacer()
-                        TextField("\(name)", text: $name)
+                        TextField("\(editProfileViewModel.username)", text: $editProfileViewModel.username)
                             .keyboardType(.default)
                             .multilineTextAlignment(.trailing)
                     }
                     
-                    DatePicker("생년월일", selection: $birthDate, displayedComponents: .date)
+                    DatePicker("생년월일", selection: $editProfileViewModel.birthDate, displayedComponents: .date)
                     
                     HStack {
                         Text("전화번호")
                         Spacer()
-                        TextField("\(phoneNumber)", text: $phoneNumber)
+                        TextField("\(editProfileViewModel.phoneNumber)", text: $editProfileViewModel.phoneNumber)
                             .keyboardType(.numberPad)
                             .multilineTextAlignment(.trailing)
                     }
@@ -48,20 +38,25 @@ struct EditProfileView: View {
         }
         .navigationBarTitle("내 정보 수정", displayMode: .inline)
         .navigationBarItems(trailing: Button("완료") {
-            updateUserProfile()
-            
+            DispatchQueue.main.async {
+                updateUserProfile()
+                editProfileViewModel.fetchUserData()
+                self.presentationMode.wrappedValue.dismiss()
+                editProfileViewModel.saveProfile()
+            }
         })
+        
     }
     func updateUserProfile() {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd" // 서버에서 요구하는 날짜 형식으로 설정
-        let birthDateString = dateFormatter.string(from: birthDate)
+        let birthDateString = dateFormatter.string(from: editProfileViewModel.birthDate)
         
         let parameters: Parameters = [
             "birth": birthDateString,
-            "name": name,
-            "phone": phoneNumber
+            "name": editProfileViewModel.username,
+            "phone": editProfileViewModel.phoneNumber
         ]
         
         let headers: HTTPHeaders = [

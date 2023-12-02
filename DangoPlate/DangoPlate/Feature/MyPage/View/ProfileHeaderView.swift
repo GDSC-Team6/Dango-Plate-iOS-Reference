@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileHeaderView: View {
-    @StateObject var viewModel = ProfileHeaderViewModel()
+    @StateObject var viewModel = MyPageViewModel()
     @State private var showingEditProfile = false
     var body: some View {
         VStack {
@@ -73,9 +73,12 @@ struct ProfileHeaderView: View {
             RoundedRectangle(cornerRadius: 8)
                 .stroke(Color.gray, lineWidth: 1) // 윤곽선 색상 및 두께 설정
         )
+        .onAppear{
+            viewModel.fetchUserData()
+        }
     }
 }
 
 #Preview {
-    ProfileHeaderView(viewModel: ProfileHeaderViewModel(isPreview: true))
+    ProfileHeaderView(viewModel: MyPageViewModel(isPreview: true))
 }
