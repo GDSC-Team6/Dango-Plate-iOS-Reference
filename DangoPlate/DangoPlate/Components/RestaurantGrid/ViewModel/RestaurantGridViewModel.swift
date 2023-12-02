@@ -1,5 +1,5 @@
 //
-//  RestaurantListViewModel.swift
+//  RestaurantGridViewModel.swift
 //  DangoPlate
 //
 //  Created by Jinyoung Yoo on 10/14/23.
@@ -8,37 +8,40 @@
 import Foundation
 import Alamofire
 
-class RestaurantListViewModel: ObservableObject {
+class RestaurantGridViewModel: ObservableObject {
     @Published var restaurantList: [Restaurant]
     @Published var searchRadius: SearchRadius
     @Published var categoryFilter: FilterType.Category
     @Published var foodTypeFilter: [FilterType.FoodType]
-    @Published var hasSearchResultList = false
+    @Published var hasNewRestaurantList = false
+
+    let searchType: SearchType
     
-    var searchType: SearchType
-    let latitude: String
-    let longitude: String
+    private let userLocation = LocationService.requestUserLocation()
+    var latitude: String {
+        return userLocation.latitude
+    }
+    var longitude: String {
+        return userLocation.longitude
+    }
+
     
     init (
         searchType: SearchType,
         restaurantList: [Restaurant] = [],
-        searchRadius: SearchRadius = .thirty,
+        searchRadius: SearchRadius = .wide(3000, "3km"),
         categoryFilter: FilterType.Category = .all,
-        foodTypeFilter: [FilterType.FoodType] = [],
-        latitude: String = "",
-        longitude: String = ""
+        foodTypeFilter: [FilterType.FoodType] = []
     ) {
         self.restaurantList = restaurantList
         self.searchRadius = searchRadius
         self.categoryFilter = categoryFilter
         self.foodTypeFilter = foodTypeFilter
         self.searchType = searchType
-        self.latitude = latitude
-        self.longitude = longitude
     }
 }
 
-extension RestaurantListViewModel {
+extension RestaurantGridViewModel {
     func addRestaurantList(_ restaurant: Restaurant) {
         restaurantList.append(restaurant)
     }
@@ -63,13 +66,15 @@ extension RestaurantListViewModel {
                     let restaurant = Restaurant.createRestaurant(information: document)
                     self.addRestaurantList(restaurant)
                 }
-                self.hasSearchResultList = true
+                self.hasNewRestaurantList = true
             case .failure(let error):
                 print("Error: \(error.localizedDescription)")
             }
         }
     }
-    
+}
+
+extension RestaurantGridViewModel {
     private func makeQueryParameter(_ searchType: SearchType, _ query: String) -> [String: String] {
         var queryParam = [String: String]()
         
@@ -78,13 +83,33 @@ extension RestaurantListViewModel {
             if (!query.isEmpty) { queryParam["query"] = query + " 맛집" }
         case .nearyBy:
             if (!latitude.isEmpty && !longitude.isEmpty) {
+                
                 queryParam["query"] = "맛집"
                 queryParam["x"] = longitude
                 queryParam["y"] = latitude
-                queryParam["radius"] = searchRadius.rawValue
+                queryParam["radius"] = getSearchRadius()
             }
         }
         
         return queryParam
+    }
+    
+    private func getSearchRadius() -> String {
+        var radius: String
+
+        switch self.searchRadius {
+        case .narrow(let integer, _):
+            radius = String(integer)
+        case .mediumNarrow(let integer, _):
+            radius = String(integer)
+        case .medium(let integer, _):
+            radius = String(integer)
+        case .mediumWide(let integer, _):
+            radius = String(integer)
+        case .wide(let integer, _):
+            radius = String(integer)
+        }
+        
+        return radius
     }
 }

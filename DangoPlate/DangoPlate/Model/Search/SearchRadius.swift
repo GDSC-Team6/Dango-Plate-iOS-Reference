@@ -7,6 +7,10 @@
 
 import Foundation
 
-enum SearchRadius: String {
-    case one = "100", three = "300", five = "500", ten = "1000", thirty = "3000"
+enum SearchRadius {
+    case narrow(Int, String)
+    case mediumNarrow(Int, String)
+    case medium(Int, String)
+    case mediumWide(Int, String)
+    case wide(Int, String)
 }
