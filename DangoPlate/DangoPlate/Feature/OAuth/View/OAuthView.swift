@@ -7,20 +7,30 @@
 
 // OAuthView.swift
 import SwiftUI
+import KakaoSDKUser
+import KakaoSDKAuth
 
 struct OAuthView: View {
-    
+    @ObservedObject private var viewModel: OAuthViewModel
+
+    init(viewModel: OAuthViewModel) {
+        self.viewModel = viewModel
+    }
+
     var body: some View {
-        
-        NavigationView {
+        if viewModel.isLoggedIn {
+            LayoutView() // 로그인에 성공하면 LayoutView를 표시합니다.
+        } else {
             GeometryReader { geometry in
                 VStack {
                     Spacer()
                     Image("DangoPlate")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                    
-                    NavigationLink(destination: LayoutView()) {
+                        
+                    Button(action: {
+                        viewModel.isKakaoTalkInstalled()
+                    }) {
                         HStack {
                             Spacer()
                             Image("kakao_login_large_narrow")
@@ -32,12 +42,18 @@ struct OAuthView: View {
                     }
                     Spacer()
                 }
+                .onOpenURL(perform: { url in
+                    if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                        _ = AuthController.handleOpenUrl(url: url)
+                    }
+                })
             }
         }
     }
 }
 
 
+
 #Preview {
-    OAuthView()
+    OAuthView(viewModel: OAuthViewModel())
 }
