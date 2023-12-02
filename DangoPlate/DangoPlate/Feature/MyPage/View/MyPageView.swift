@@ -1,8 +1,8 @@
 import SwiftUI
-
+import KeychainAccess
 struct MyPageView: View {
     @EnvironmentObject var loginManager: LoginManager
-
+    @StateObject var viewModel = MyPageViewModel()
     var body: some View {
         NavigationView{
             ScrollView{
@@ -10,7 +10,7 @@ struct MyPageView: View {
                     ProfileHeaderView()
                         .frame(maxWidth: .infinity)
                         .background(Color.white)
-
+                    TimelineView()
                     // 당고플레이트 섹션
                     SectionHeaderView(title: "당고플레이트")
                     MenuRow(iconName: "star", title: "가고싶다")
@@ -45,8 +45,9 @@ struct MyPageView: View {
 }
 
 struct SettingView: View {
+    
+    @EnvironmentObject var loginManager: LoginManager
     var body: some View {
-        @EnvironmentObject var loginManager: LoginManager
         Button(action: {
             loginManager.logout()
         }) {
@@ -60,77 +61,7 @@ struct SettingView: View {
         .padding()
     }
 }
-struct ProfileHeaderView: View {
-    let profileImage: Image = Image("gasom")
-    let username: String = "가솜"
-    let followersCount: Int = 20
-    let followingCount: Int = 10
-    
-    var body: some View {
-        VStack{
-            HStack {
-                VStack {
-                    profileImage
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 70, height: 70)
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                    
-                    Text(username)
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                }
-                
-                Spacer() // 프로필 이미지와 팔로워 정보 사이의 간격 조절
-                
-                VStack {
-                    Text("\(followersCount)")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                    Text("팔로워")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
-                
-                Spacer(minLength: 10) // 팔로워와 팔로잉 정보 사이의 간격을 10으로 설정
-                
-                VStack {
-                    Text("\(followingCount)")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                    Text("팔로잉")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
-                
-                Spacer() // 팔로잉 정보와 버튼 사이의 간격 조절
-                Button(action: {
-                    // 버튼 클릭시 실행할 코드
-                }) {
-                    HStack {
-                        Image(systemName: "pencil")
-                            .imageScale(.medium)
-                        Text("수정")
-                    }
-                    .padding(.horizontal, 8) // 좌우 패딩
-                    .padding(.vertical, 8) // 상하 패딩
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 39) // 둥근 모서리
-                            .stroke(Color.gray, lineWidth: 1)
-                    )
-                }
-                .foregroundColor(.gray) // 버튼 색상 설정
-                
-                //.padding(5) // 버튼 내부 여백 설정
-            }
-            .padding() // 컨텐츠 주변 여백 추가
-            .frame(maxWidth: .infinity) // 최대 가로 너비 설정
-            .background(Color.white) // 배경색 설정
-        }
-        TimelineView()
-    }
-}
+
 struct SectionHeaderView: View {
     var title: String
     
@@ -141,7 +72,6 @@ struct SectionHeaderView: View {
                 .padding(.vertical, 10)
             Spacer()
         }
-        //.background(Color.gray.opacity())
     }
 }
 

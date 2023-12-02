@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 import KakaoSDKUser
 import KeychainAccess
+import SwiftUI
 
 class LoginManager : ObservableObject{
     static let shared = LoginManager()
@@ -67,7 +68,7 @@ class LoginManager : ObservableObject{
                    let data = JSON["data"] as? [String: Any],  // 'data' 객체 추출
                    let newAccessToken = data["accessToken"] as? String,  // 'data' 객체 안에서 'accessToken' 추출
                    let newRefreshToken = data["refreshToken"] as? String {  // 'data' 객체 안에서 'refreshToken' 추출
-                    print("new: \(newAccessToken)")
+                    print("newRefreshToken: \(newRefreshToken)")
                     // Keychain에 토큰 저장
                     saveTokens(accessToken: newAccessToken, refreshToken: newRefreshToken)
 
@@ -92,12 +93,17 @@ class LoginManager : ObservableObject{
             try keychain.remove("accessToken")
             try keychain.remove("refreshToken")
             DispatchQueue.main.async {
+                UserApi.shared.logout { (error) in
+                        if let error = error {
+                            print(error)
+                        } else {
+                            print("kakao logout success")
+                        }
+                    }
                 self.isLoggedIn = false
             }
         } catch {
             print("Error removing tokens from keychain: \(error)")
         }
     }
-
-    
 }

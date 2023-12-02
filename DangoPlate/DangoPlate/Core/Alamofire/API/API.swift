@@ -17,5 +17,8 @@ struct API {
     static var SERVER_LOGIN : String {
         return URL + "/oauth/kakao/login"
     }
+    static var USER_DATA : String {
+        return URL + "/user/now"
+    }
     //"\(API.BASE_URL)/oauth/kakao/login"
 }

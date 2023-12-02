@@ -6,5 +6,11 @@
 //
 
 import Foundation
-
-class MyPageViewModel {}
+import KeychainAccess
+import Combine
+import SwiftUI
+import Alamofire
+class MyPageViewModel : ObservableObject{
+    
+    
+}

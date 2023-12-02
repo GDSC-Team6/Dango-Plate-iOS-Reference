@@ -20,3 +20,20 @@ struct MenuRow: View {
         }
     }
 }
+struct UserData: Codable {
+    struct Data: Codable {
+        let createdAt: String
+        let updatedAt: String
+        let id: Int
+        let kakaoId: Int64
+        let password: String
+        let name: String
+        let phone: String
+        let imageUrl: String
+        let social: String
+    }
+    
+    let code: Int
+    let message: String
+    let data: Data
+}
