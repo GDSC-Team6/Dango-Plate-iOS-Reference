@@ -118,6 +118,7 @@
 		FFB6CFAD2B180DCB00D56572 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		FFB6CFAF2B18DFF700D56572 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		FFB6CFB32B18E86300D56572 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		FFB6CFB52B1B097800D56572 /* API사용법.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "API사용법.md"; sourceTree = "<group>"; };
 		FFEE0D882B0DFEB70090C1FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FFF8733B2B13975400276698 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -457,6 +458,7 @@
 			isa = PBXGroup;
 			children = (
 				CC8F11002AFA30DD0045B4C0 /* API.swift */,
+				FFB6CFB52B1B097800D56572 /* API사용법.md */,
 			);
 			path = API;
 			sourceTree = "<group>";
