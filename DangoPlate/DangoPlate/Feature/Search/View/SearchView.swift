@@ -9,8 +9,8 @@ import SwiftUI
 
 struct SearchView: View {
     @EnvironmentObject private var pathModel: PathModel
-    @StateObject var restaurantListViewModel = RestaurantListViewModel(searchType: .keyword)
-    @FocusState private var isSearchFieldFocused: Bool
+    @StateObject var restaurantGridViewModel = RestaurantGridViewModel(searchType: .keyword)
+    @FocusState private var isSearchingFieldFocused: Bool
     @State private var query = ""
 
     var body: some View {
@@ -26,17 +26,17 @@ struct SearchView: View {
                         .fontWeight(.bold)
                 })
                 TextField("키워드로 검색해보세요.", text: $query, onEditingChanged: { _ in
-                    restaurantListViewModel.hasSearchResultList = false
+                    restaurantGridViewModel.hasNewRestaurantList = false
                 })
                     .font(.system(size: 17))
                     .padding(.horizontal, 5)
-                    .focused($isSearchFieldFocused)
+                    .focused($isSearchingFieldFocused)
                     .autocorrectionDisabled()
                     .onSubmit {
-                        restaurantListViewModel.updateRestaurantList(query)
+                        restaurantGridViewModel.updateRestaurantList(query)
                     }
                     .onAppear {
-                        isSearchFieldFocused = true
+                        isSearchingFieldFocused = true
                     }
             }
             .padding(.bottom, 10)
@@ -46,8 +46,8 @@ struct SearchView: View {
             
             Spacer()
             
-            if (restaurantListViewModel.hasSearchResultList) {
-                RestaurantListView(restaurantListViewModel: restaurantListViewModel)
+            if (restaurantGridViewModel.hasNewRestaurantList) {
+                RestaurantGridView(restaurantGridViewModel: restaurantGridViewModel)
             }
         }
         .padding(.top, 15)
