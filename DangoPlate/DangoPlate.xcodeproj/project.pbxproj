@@ -11,7 +11,6 @@
 		CC33DD812AE8C70100F392D4 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC33DD802AE8C70100F392D4 /* String+Extensions.swift */; };
 		CC4ED8AF2AD578E60089F4F3 /* OAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4ED8AE2AD578E60089F4F3 /* OAuthView.swift */; };
 		CC4ED8B12AD578F30089F4F3 /* OAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4ED8B02AD578F30089F4F3 /* OAuthViewModel.swift */; };
-		CC4ED8B32AD5790B0089F4F3 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4ED8B22AD5790B0089F4F3 /* MyPageView.swift */; };
 		CC4ED8B52AD579190089F4F3 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4ED8B42AD579190089F4F3 /* MyPageViewModel.swift */; };
 		CC4ED8B72AD579310089F4F3 /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4ED8B62AD579310089F4F3 /* RestaurantView.swift */; };
 		CC4ED8B92AD5793F0089F4F3 /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4ED8B82AD5793F0089F4F3 /* RestaurantViewModel.swift */; };
@@ -48,7 +47,15 @@
 		CCD8D63A2AE83B1B00FC3357 /* PathType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8D6392AE83B1B00FC3357 /* PathType.swift */; };
 		CCDBFAC02AF8C0ED00985B2C /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDBFABF2AF8C0ED00985B2C /* Color+Extensions.swift */; };
 		CCFF152D2AF9FAC30012E7D5 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFF152C2AF9FAC30012E7D5 /* SearchResponse.swift */; };
-		FF9F7BCC2B0259E00013128A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9F7BCB2B0259E00013128A /* ProfileView.swift */; };
+		FFB6CFC02B1B146200D56572 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = FFB6CFBF2B1B146200D56572 /* KeychainAccess */; };
+		FFC498C82B1C391D00D3C68C /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FFC498C72B1C391D00D3C68C /* KakaoSDKAuth */; };
+		FFC498CA2B1C391D00D3C68C /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = FFC498C92B1C391D00D3C68C /* KakaoSDKCommon */; };
+		FFC498CC2B1C391D00D3C68C /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = FFC498CB2B1C391D00D3C68C /* KakaoSDKUser */; };
+		FFC498E62B1C43A700D3C68C /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC498E52B1C43A700D3C68C /* MyPageView.swift */; };
+		FFC498EA2B1C43B000D3C68C /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC498E92B1C43B000D3C68C /* EditProfileView.swift */; };
+		FFC498EC2B1C43E500D3C68C /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC498EB2B1C43E500D3C68C /* ProfileHeaderView.swift */; };
+		FFC498EF2B1C442700D3C68C /* Keychains.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC498EE2B1C442700D3C68C /* Keychains.swift */; };
+		FFC498F22B1C449100D3C68C /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC498F12B1C449100D3C68C /* LoginManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +80,6 @@
 		CC33DD802AE8C70100F392D4 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		CC4ED8AE2AD578E60089F4F3 /* OAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthView.swift; sourceTree = "<group>"; };
 		CC4ED8B02AD578F30089F4F3 /* OAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthViewModel.swift; sourceTree = "<group>"; };
-		CC4ED8B22AD5790B0089F4F3 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		CC4ED8B42AD579190089F4F3 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
 		CC4ED8B62AD579310089F4F3 /* RestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
 		CC4ED8B82AD5793F0089F4F3 /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
@@ -112,7 +118,12 @@
 		CCD8D6392AE83B1B00FC3357 /* PathType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathType.swift; sourceTree = "<group>"; };
 		CCDBFABF2AF8C0ED00985B2C /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		CCFF152C2AF9FAC30012E7D5 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
-		FF9F7BCB2B0259E00013128A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FFC498A72B1C34D800D3C68C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FFC498E52B1C43A700D3C68C /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		FFC498E92B1C43B000D3C68C /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		FFC498EB2B1C43E500D3C68C /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		FFC498EE2B1C442700D3C68C /* Keychains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychains.swift; sourceTree = "<group>"; };
+		FFC498F12B1C449100D3C68C /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +131,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFC498CA2B1C391D00D3C68C /* KakaoSDKCommon in Frameworks */,
 				CC51E0C62AF27427009439D0 /* Alamofire in Frameworks */,
+				FFB6CFC02B1B146200D56572 /* KeychainAccess in Frameworks */,
+				FFC498CC2B1C391D00D3C68C /* KakaoSDKUser in Frameworks */,
+				FFC498C82B1C391D00D3C68C /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,7 +194,7 @@
 		CC4ED89C2AD576C40089F4F3 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				CC4ED8A12AD5777D0089F4F3 /* View */,
+				FFC498E42B1C43A200D3C68C /* View */,
 				CC4ED8A02AD577740089F4F3 /* ViewModel */,
 			);
 			path = MyPage;
@@ -216,15 +231,6 @@
 				CC4ED8B42AD579190089F4F3 /* MyPageViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		CC4ED8A12AD5777D0089F4F3 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				CC4ED8B22AD5790B0089F4F3 /* MyPageView.swift */,
-				FF9F7BCB2B0259E00013128A /* ProfileView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		CC4ED8A22AD577850089F4F3 /* ViewModel */ = {
@@ -318,6 +324,7 @@
 				CC59E4122AD419A200CE02C2 /* DangoPlateTests */,
 				CC59E41C2AD419A200CE02C2 /* DangoPlateUITests */,
 				CC59E4002AD419A100CE02C2 /* Products */,
+				FFB6CFB72B1B144800D56572 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -334,6 +341,7 @@
 		CC59E4012AD419A100CE02C2 /* DangoPlate */ = {
 			isa = PBXGroup;
 			children = (
+				FFC498A72B1C34D800D3C68C /* Info.plist */,
 				CC59E42C2AD419D000CE02C2 /* App */,
 				CCFF15292AF9FA790012E7D5 /* Core */,
 				CC98DEA72AD9C057001A8ABD /* Components */,
@@ -494,6 +502,7 @@
 		CCA836592AD57A3A008FE679 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				FFC498ED2B1C441700D3C68C /* Keychains */,
 				CC33DD7F2AE8C6F300F392D4 /* Extension */,
 				CC33DD7C2AE8C49500F392D4 /* Dummy */,
 			);
@@ -529,6 +538,7 @@
 		CCFF152A2AF9FA910012E7D5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				FFC498F02B1C448100D3C68C /* Login */,
 				CC8F10FF2AFA30CA0045B4C0 /* API */,
 				CCFF152B2AF9FA9B0012E7D5 /* Response */,
 			);
@@ -541,6 +551,39 @@
 				CCFF152C2AF9FAC30012E7D5 /* SearchResponse.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		FFB6CFB72B1B144800D56572 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FFC498E42B1C43A200D3C68C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FFC498E52B1C43A700D3C68C /* MyPageView.swift */,
+				FFC498E92B1C43B000D3C68C /* EditProfileView.swift */,
+				FFC498EB2B1C43E500D3C68C /* ProfileHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FFC498ED2B1C441700D3C68C /* Keychains */ = {
+			isa = PBXGroup;
+			children = (
+				FFC498EE2B1C442700D3C68C /* Keychains.swift */,
+			);
+			path = Keychains;
+			sourceTree = "<group>";
+		};
+		FFC498F02B1C448100D3C68C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FFC498F12B1C449100D3C68C /* LoginManager.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -561,6 +604,10 @@
 			name = DangoPlate;
 			packageProductDependencies = (
 				CC51E0C52AF27427009439D0 /* Alamofire */,
+				FFB6CFBF2B1B146200D56572 /* KeychainAccess */,
+				FFC498C72B1C391D00D3C68C /* KakaoSDKAuth */,
+				FFC498C92B1C391D00D3C68C /* KakaoSDKCommon */,
+				FFC498CB2B1C391D00D3C68C /* KakaoSDKUser */,
 			);
 			productName = DangoPlate;
 			productReference = CC59E3FF2AD419A100CE02C2 /* DangoPlate.app */;
@@ -636,6 +683,8 @@
 			mainGroup = CC59E3F62AD419A100CE02C2;
 			packageReferences = (
 				CC51E0C42AF27427009439D0 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				FFB6CFBE2B1B146200D56572 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				FFC498C62B1C391D00D3C68C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
 			productRefGroup = CC59E4002AD419A100CE02C2 /* Products */;
 			projectDirPath = "";
@@ -682,8 +731,11 @@
 			files = (
 				CC4ED8BB2AD5794B0089F4F3 /* SearchView.swift in Sources */,
 				CC98DEAC2AD9C09E001A8ABD /* CustomTabBarView.swift in Sources */,
+				FFC498E62B1C43A700D3C68C /* MyPageView.swift in Sources */,
+				FFC498EF2B1C442700D3C68C /* Keychains.swift in Sources */,
 				CC8FF9CF2AD66F3200D7288E /* LayoutView.swift in Sources */,
 				CC4ED8B12AD578F30089F4F3 /* OAuthViewModel.swift in Sources */,
+				FFC498EA2B1C43B000D3C68C /* EditProfileView.swift in Sources */,
 				CC4ED8C92AD579C50089F4F3 /* OAuth.swift in Sources */,
 				CC59E4332AD5732C00CE02C2 /* AppDelegate.swift in Sources */,
 				CC4ED8C72AD579BC0089F4F3 /* Restaurant.swift in Sources */,
@@ -704,15 +756,15 @@
 				CCD8D63A2AE83B1B00FC3357 /* PathType.swift in Sources */,
 				CC98DEB02AD9C126001A8ABD /* CustomTabBar.swift in Sources */,
 				CC4ED8BF2AD579650089F4F3 /* NearbyRestaurantView.swift in Sources */,
+				FFC498EC2B1C43E500D3C68C /* ProfileHeaderView.swift in Sources */,
 				CC4ED8C52AD579AC0089F4F3 /* SearchType.swift in Sources */,
 				CCFF152D2AF9FAC30012E7D5 /* SearchResponse.swift in Sources */,
 				CC67704F2ADA83A80039A15B /* RestaurantListView.swift in Sources */,
 				CC59E4032AD419A100CE02C2 /* DangoPlateApp.swift in Sources */,
 				CCD8D6382AE83AF700FC3357 /* Path.swift in Sources */,
-				CC4ED8B32AD5790B0089F4F3 /* MyPageView.swift in Sources */,
 				CC33DD812AE8C70100F392D4 /* String+Extensions.swift in Sources */,
 				CC8F11012AFA30DD0045B4C0 /* API.swift in Sources */,
-				FF9F7BCC2B0259E00013128A /* ProfileView.swift in Sources */,
+				FFC498F22B1C449100D3C68C /* LoginManager.swift in Sources */,
 				CC33DD7E2AE8C4AE00F392D4 /* DummyData.swift in Sources */,
 				CCB94A3B2B0DAC2600F122DD /* UINavigationController+Extension.swift in Sources */,
 			);
@@ -878,9 +930,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DangoPlate/Preview Content\"";
-				DEVELOPMENT_TEAM = YWNQ4RZBTS;
+				DEVELOPMENT_TEAM = U6NUHA5DNR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DangoPlate/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 기반으로 주변 맛집 정보를 제공하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -913,9 +966,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DangoPlate/Preview Content\"";
-				DEVELOPMENT_TEAM = YWNQ4RZBTS;
+				DEVELOPMENT_TEAM = U6NUHA5DNR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DangoPlate/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 기반으로 주변 맛집 정보를 제공하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1066,6 +1120,22 @@
 				minimumVersion = 5.8.1;
 			};
 		};
+		FFB6CFBE2B1B146200D56572 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		FFC498C62B1C391D00D3C68C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.19.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1073,6 +1143,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CC51E0C42AF27427009439D0 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		FFB6CFBF2B1B146200D56572 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFB6CFBE2B1B146200D56572 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+		FFC498C72B1C391D00D3C68C /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFC498C62B1C391D00D3C68C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		FFC498C92B1C391D00D3C68C /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFC498C62B1C391D00D3C68C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
+		FFC498CB2B1C391D00D3C68C /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFC498C62B1C391D00D3C68C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
