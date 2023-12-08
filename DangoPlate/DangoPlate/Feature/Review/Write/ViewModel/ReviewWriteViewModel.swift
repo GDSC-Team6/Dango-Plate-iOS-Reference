@@ -41,20 +41,28 @@ extension ReviewWriteViewModel {
                 multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
             }
             
-            for image in self.images {
+            for (index, image) in self.images.enumerated() {
                 if let jpegImage = image.jpegData(compressionQuality: 0.5) {
-                    multipartFormData.append(jpegImage, withName: "images")
+                    multipartFormData.append(
+                        jpegImage, withName: "images",
+                        fileName: "image_\(index).jpg",
+                        mimeType: "image/jpeg"
+                        )
                 }
             }
         }, to: requestURL, method: .post, headers: headers)
-        .validate(statusCode: 200..<500)
+        .validate(statusCode: 200..<300)
         .responseDecodable(of: CommonResponse.self) { response in
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Server Response: \(utf8Text)")
+            }
             switch response.result {
-            case .success(_):
+            case .success(let r):
+                print(r.code)
                 result = true
             case .failure(let error):
                 result = false
-                print("\(error.localizedDescription) for fuck's sake")
+                print("\(error.localizedDescription)")
             }
         }
     

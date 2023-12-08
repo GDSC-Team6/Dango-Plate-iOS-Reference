@@ -8,6 +8,6 @@
 import Foundation
 
 struct CommonResponse: Codable {
-    let code: String?
+    let code: UInt?
     let message: String?
 }

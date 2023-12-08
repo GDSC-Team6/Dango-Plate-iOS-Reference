@@ -25,4 +25,8 @@ extension DummyData {
         let dummyList: [Restaurant] = (0..<capacity).map { _ in self.createDummyData() }
         return dummyList
     }
+    
+    static func mcdonaldDT() -> Restaurant {
+        return Restaurant(id: "27120996", address: "경기 부천시 괴안동 112-23", roadAddress: "경기 부천시 경인로 487", placeName: "맥도날드 부천역곡역DT점", distance: "", phone: "032-214-9000", latitude: "37.48368129744206", longitude: "37.48368129744206", thumbnail: "", numberOfReviews: 0, isWishList: false)
+    }
 }

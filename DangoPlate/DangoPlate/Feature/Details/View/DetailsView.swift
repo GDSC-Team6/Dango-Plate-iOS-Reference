@@ -45,7 +45,7 @@ struct DetailHeaderView: View {
         VStack(alignment: .leading) {
             HStack(spacing: 2.0) {
                 RestaurantImageView(url: detailsViewModel.thumbnailUrls.first ?? "")
-                RestaurantImageView(url: detailsViewModel.thumbnailUrls[1] ?? "")
+                RestaurantImageView(url: detailsViewModel.thumbnailUrls.first ?? "")
                 RestaurantImageView(url: detailsViewModel.thumbnailUrls.last ?? "")
             }
     

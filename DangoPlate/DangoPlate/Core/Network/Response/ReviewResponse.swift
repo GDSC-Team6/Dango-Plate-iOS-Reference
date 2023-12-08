@@ -9,10 +9,10 @@ import Foundation
 
 struct ReviewData: Codable {
     let content: String
-    let id: String         // UInt
-    let shopId: String    // UInt
+    let id: UInt         // UInt
+    let shopId: UInt    // UInt
     let urls: [String]
-    let userId: String    // UInt
+    let userId: UInt    // UInt
     
     enum CodingKeys: String, CodingKey {
         case shopId = "shop_id"
@@ -22,5 +22,10 @@ struct ReviewData: Codable {
 }
 
 struct ReviewResponse: Codable {
+    let code: UInt
     let data: ReviewData
+    
+    enum CodingKeys: String, CodingKey {
+        case code, data
+    }
 }

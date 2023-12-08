@@ -8,16 +8,16 @@
 import Foundation
 
 struct DetailsData: Codable {
-    let id: String             // UInt
+    let id: UInt             // UInt
     let imageUrls: [String]
-    let reviewIds: [String]    // UInt
-    let shopUid: String        // UInt
+    let reviewIds: [UInt]    // UInt
+    let shopUid: UInt        // UInt
     
     enum CodingKeys: String, CodingKey {
         case id, imageUrls, reviewIds, shopUid
     }
 }
 
-struct DetailsResultResponse: Codable {
+struct DetailsResponse: Codable {
     let data: DetailsData
 }

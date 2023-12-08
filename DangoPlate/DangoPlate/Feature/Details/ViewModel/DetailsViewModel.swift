@@ -16,7 +16,7 @@ class DetailsViewModel: ObservableObject {
     
     init(info: Restaurant) {
         self.info = info
-//        loadDetails()
+        loadDetails()
     }
 }
 
@@ -31,23 +31,27 @@ extension DetailsViewModel {
 
         AF.request(requestURL, parameters: queryParam, headers: headers)
             .validate(statusCode: 200..<300)
-            .responseDecodable(of: DetailsResultResponse.self) {
+            .responseDecodable(of: DetailsResponse.self) {
             response in
             switch response.result {
             case .success(let body):
+                print(body.data)
                 self.thumbnailUrls = body.data.imageUrls
-                
                 for review in body.data.reviewIds {
-                    guard let reviewId = UInt(review) else {
-                        continue
-                    }
+//                    guard let reviewId = UInt(review) else {
+//                        continue
+//                    }
                     
-                    guard let thisReview = self.loadBestReviews(reviewId: reviewId) else {
+                    guard let thisReview = self.loadBestReviews(reviewId: review) else {
                         continue
                     }
                     
                     self.bestReviews.append(thisReview)
                 }
+                
+                print("tu \(self.thumbnailUrls.count)")
+                print("br \(self.bestReviews.count)")
+                
             case .failure(let error):
                 print(error.localizedDescription)
             }
