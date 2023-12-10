@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD3A27422B24408F00B6D41B /* ReviewReadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3A27412B24408F00B6D41B /* ReviewReadViewModel.swift */; };
 		AD4B766C2B2313A400888EC7 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4B766B2B2313A400888EC7 /* PhotoPicker.swift */; };
 		ADCAF7962B219FBD004DDCE0 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCAF7952B219FBD004DDCE0 /* DetailsView.swift */; };
 		ADCAF7982B219FCE004DDCE0 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCAF7972B219FCE004DDCE0 /* DetailsViewModel.swift */; };
@@ -88,6 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD3A27412B24408F00B6D41B /* ReviewReadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewReadViewModel.swift; sourceTree = "<group>"; };
 		AD4B766B2B2313A400888EC7 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		ADCAF7952B219FBD004DDCE0 /* DetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		ADCAF7972B219FCE004DDCE0 /* DetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 		ADCAF7932B219F85004DDCE0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				AD3A27412B24408F00B6D41B /* ReviewReadViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -942,6 +945,7 @@
 				FFC498F22B1C449100D3C68C /* LoginManager.swift in Sources */,
 				CC33DD7E2AE8C4AE00F392D4 /* DummyData.swift in Sources */,
 				ADCAF7AD2B22EBD3004DDCE0 /* ReviewWriteViewModel.swift in Sources */,
+				AD3A27422B24408F00B6D41B /* ReviewReadViewModel.swift in Sources */,
 				CCB94A3B2B0DAC2600F122DD /* UINavigationController+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

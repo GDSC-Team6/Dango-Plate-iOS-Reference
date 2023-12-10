@@ -35,22 +35,10 @@ extension DetailsViewModel {
             response in
             switch response.result {
             case .success(let body):
-                print(body.data)
                 self.thumbnailUrls = body.data.imageUrls
                 for review in body.data.reviewIds {
-//                    guard let reviewId = UInt(review) else {
-//                        continue
-//                    }
-                    
-                    guard let thisReview = self.loadBestReviews(reviewId: review) else {
-                        continue
-                    }
-                    
-                    self.bestReviews.append(thisReview)
+                    self.loadBestReviews(reviewId: review)
                 }
-                
-                print("tu \(self.thumbnailUrls.count)")
-                print("br \(self.bestReviews.count)")
                 
             case .failure(let error):
                 print(error.localizedDescription)
@@ -58,14 +46,13 @@ extension DetailsViewModel {
         }
     }
     
-    func loadBestReviews(reviewId: UInt) -> Review? {
+    func loadBestReviews(reviewId: UInt) {
         let requestURL = API.REVIEW
         let queryParam = ["reviewId": reviewId]
         let headers: HTTPHeaders = [
             .authorization("Bearer \(getATK())"),
             .accept("application/json")
         ]
-        var result: Review?
         
         AF.request(requestURL, parameters: queryParam, headers: headers)
             .validate(statusCode: 200..<300)
@@ -76,22 +63,22 @@ extension DetailsViewModel {
                     guard case let (shopId?, userId?) =
                             (UInt(review.data.shopId), UInt(review.data.userId))
                     else {
-                        result = nil
                         return
                     }
-                    result = Review(
+                    self.bestReviews.append(
+                        Review(
                         reviewId: reviewId,
                         shopId: shopId,
                         userId: userId,
-                        content: review.data.content
-                    )
+                        content: review.data.content,
+                        imageUrls: review.data.urls
+                    ))
+                                       
                     
                 case .failure(let error):
-                    result = nil
                     print(error.localizedDescription)
+                    return
                 }
         }
-        
-        return result
     }
 }
