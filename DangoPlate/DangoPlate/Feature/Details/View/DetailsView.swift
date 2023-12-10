@@ -23,14 +23,20 @@ struct DetailsView: View {
                     restaurantAddress: detailsViewModel.info.address
                 )
                 .padding(10)
-                .background(Color(UIColor.systemGray6))
                 .cornerRadius(10)
                 
                 Divider()
                 
+                LazyVStack {
+                    ForEach(detailsViewModel.bestReviews.prefix(3), id: \.self) { review in
+                        ReviewReadView(reviewReadViewModel: ReviewReadViewModel(review: review))
+                            .padding(5)
+                    }
+                }
+                .background(Color(UIColor.systemGray6))
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-            .padding()
+            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .scrollIndicators(.never)
@@ -44,9 +50,11 @@ struct DetailHeaderView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack(spacing: 2.0) {
+                Spacer()
                 RestaurantImageView(url: detailsViewModel.thumbnailUrls.first ?? "")
                 RestaurantImageView(url: detailsViewModel.thumbnailUrls.first ?? "")
                 RestaurantImageView(url: detailsViewModel.thumbnailUrls.last ?? "")
+                Spacer()
             }
     
             Spacer()
@@ -125,38 +133,6 @@ struct MapView: View {
             Map(coordinateRegion: $region, showsUserLocation: true)
                 .frame(height: 100)
                 .padding([.top])
-            Spacer()
-            
-            
-//            HStack {
-//                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-//                    Text("길 찾기")
-//                    .foregroundStyle(.dangoBrown)
-//                })
-//                .frame(width: 80, height: 80)
-//                
-//                
-//                Button(action: {}, label: {
-//                    Text("내비게이션")
-//                    .foregroundStyle(.dangoBrown)
-//                })
-//                .frame(width: 80, height: 80)
-//                
-//                
-//                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-//                    Text("택시부르기")
-//                    .foregroundStyle(.dangoBrown)
-//                })
-//                .frame(width: 80, height: 80)
-//                
-//                
-//                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-//                    Text("주소 복사")
-//                    .foregroundStyle(.dangoBrown)
-//                })
-//                .frame(width: 80, height: 80)
-//            }
-//            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
         }
     }
 }
@@ -179,14 +155,6 @@ struct RestaurantImageView: View {
                     .frame(height: 150)
             }
         }
-    }
-}
-
-struct GrayDivider: View {
-    var body: some View {
-        Divider()
-            .frame(minHeight: 7)
-            .background(Color.gray.opacity(0.5))
     }
 }
 

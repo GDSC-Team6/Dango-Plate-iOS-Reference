@@ -7,16 +7,10 @@
 
 import Foundation
 
-struct Review {
+struct Review: Hashable {
     let reviewId: UInt
     let shopId: UInt
     let userId: UInt
     let content: String
-    
-    init(reviewId: UInt, shopId: UInt, userId: UInt, content: String) {
-        self.reviewId = reviewId
-        self.shopId = shopId
-        self.userId = userId
-        self.content = content
-    }
+    let imageUrls: [String]
 }
