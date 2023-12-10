@@ -20,5 +20,11 @@ struct API {
     static var USER_DATA : String {
         return URL + "/user/now"
     }
+    static var RESTAURANT_INFO: String {
+        return BASE_URL + "/shop"
+    }
+    static var REVIEW: String {
+        return BASE_URL + "/review"
+    }
 }
 
