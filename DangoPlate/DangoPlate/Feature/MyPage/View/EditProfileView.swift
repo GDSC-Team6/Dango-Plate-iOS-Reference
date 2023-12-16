@@ -63,7 +63,7 @@ struct EditProfileView: View {
             "Authorization": "Bearer \(getATK())"
         ]
         
-        AF.request(API.URL + "/user", method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        AF.request(API.BASE_URL + "/user", method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             switch response.result {
             case .success(let value):
                 print("Profile Updated: \(value)")

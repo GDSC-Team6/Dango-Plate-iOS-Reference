@@ -8,17 +8,16 @@
 import Foundation
 
 struct API {
-    static let BASE_URL = ProcessInfo.processInfo.environment["BASE_URL"]!
-    static let URL = ProcessInfo.processInfo.environment["URL"]!
-    static let APP_KEY = ProcessInfo.processInfo.environment["APP_KEY"]!
+    static let BASE_URL = ProcessInfo.processInfo.environment["BASE_URL", default: ""]
+    static let APP_KEY = ProcessInfo.processInfo.environment["APP_KEY", default: ""]
     static var RESTAURANT_SEARCH: String {
         return BASE_URL + "/map/search"
     }
     static var SERVER_LOGIN : String {
-        return URL + "/oauth/kakao/login"
+        return BASE_URL + "/oauth/kakao/login"
     }
     static var USER_DATA : String {
-        return URL + "/user/now"
+        return BASE_URL + "/user/now"
     }
     static var RESTAURANT_INFO: String {
         return BASE_URL + "/shop"
