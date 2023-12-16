@@ -12,25 +12,27 @@ struct NearbyRestaurantView: View {
 
     var body: some View {
         VStack {
-            HeaderView()
+            HeaderView(restaurantGridViewModel: restaurantGridViewModel)
             Divider()
             RestaurantGridView(restaurantGridViewModel: restaurantGridViewModel)
         }
         .onAppear() {
             restaurantGridViewModel.loadRestaurantList("")
+            restaurantGridViewModel.loadUserLocation()
         }
     }
 }
 
 struct HeaderView: View {
+    @ObservedObject var restaurantGridViewModel: RestaurantGridViewModel
+
     var body: some View {
         HStack {
-            // TODO: - 위도 경도로 어디 지역인지 알아와야 함
             VStack(alignment: .leading) {
                 Text("지금 보고있는 지역은")
                     .font(.caption)
                     .fontWeight(.light)
-                Text("강서구")
+                Text("\(restaurantGridViewModel.userTinyAddress)")
                     .font(.title3)
                     .fontWeight(.light)
             }

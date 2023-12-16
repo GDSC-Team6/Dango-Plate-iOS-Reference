@@ -13,6 +13,9 @@ struct API {
     static var RESTAURANT_SEARCH: String {
         return BASE_URL + "/map/search"
     }
+    static var USER_LOCATION: String {
+        return BASE_URL + "/map/now-location"
+    }
     static var SERVER_LOGIN : String {
         return BASE_URL + "/oauth/kakao/login"
     }

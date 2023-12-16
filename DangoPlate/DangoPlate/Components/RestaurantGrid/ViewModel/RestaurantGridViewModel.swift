@@ -14,6 +14,7 @@ class RestaurantGridViewModel: ObservableObject {
     @Published var categoryFilter: FilterType.Category
     @Published var foodTypeFilter: [FilterType.FoodType]
     @Published var hasNewRestaurantList = false
+    @Published var userTinyAddress = ""
 
     let searchType: SearchType
     
@@ -71,6 +72,25 @@ extension RestaurantGridViewModel {
                 print("Error: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func loadUserLocation() {
+        let requestURL = API.USER_LOCATION
+        var queryParam = [String: String]()
+
+        queryParam["x"] = longitude
+        queryParam["y"] = latitude
+        AF.request(requestURL, parameters: queryParam)
+            .validate(statusCode: 200..<300)
+            .responseDecodable(of: UserLocationResponse.self) {
+                response in
+                switch response.result {
+                case .success(let res):
+                    self.userTinyAddress = res.data.tinyAddress
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
     }
 }
 
