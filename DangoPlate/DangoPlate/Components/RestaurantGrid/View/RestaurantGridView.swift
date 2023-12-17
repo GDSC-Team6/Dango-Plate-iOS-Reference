@@ -22,7 +22,8 @@ struct RestaurantGridView: View {
 
 private struct RestaurantListOptionView: View {
     @ObservedObject var restaurantGridViewModel: RestaurantGridViewModel
-    @State private var showModal = false
+    @State private var showSearchRadiusModal = false
+    @State private var showFoodTypeFilterModal = false
 
     fileprivate var body: some View {
         HStack {
@@ -32,7 +33,7 @@ private struct RestaurantListOptionView: View {
             
             if (restaurantGridViewModel.searchType == .nearyBy) {
                 Button(action: {
-                    showModal.toggle()
+                    showSearchRadiusModal.toggle()
                 } , label: {
                     switch restaurantGridViewModel.searchRadius {
                     case .narrow(_, let narrow):
@@ -48,12 +49,21 @@ private struct RestaurantListOptionView: View {
                     }
                 })
             }
-            Button(action: {}, label: {
-                Image("filter_noSelected")
+            Button(action: {
+                showFoodTypeFilterModal.toggle()
+            }, label: {
+                if (restaurantGridViewModel.foodTypeFilter == .none) {
+                    Image("filter_noSelected")
+                } else {
+                    Image("filterWithBadge")
+                }
             })
         }
-        .fullScreenCover(isPresented: $showModal) {
-            SelectedSearchRadiusModalView(restaurantGridViewModel: restaurantGridViewModel, showModal: $showModal)
+        .fullScreenCover(isPresented: $showSearchRadiusModal) {
+            SelectedSearchRadiusModalView(restaurantGridViewModel: restaurantGridViewModel, showModal: $showSearchRadiusModal)
+        }
+        .fullScreenCover(isPresented: $showFoodTypeFilterModal) {
+            FoodTypeFilterModal(restaurantGridViewModel: restaurantGridViewModel, showModal: $showFoodTypeFilterModal)
         }
         .transaction { transaction in
             transaction.disablesAnimations = true
@@ -99,13 +109,13 @@ private struct RestaurantBasicInfoView: View {
                 Text("\(idx). \(restaurant.placeName)")
                     .font(.system(size: 15, weight: .regular))
                     .lineLimit(1)
-                    .truncationMode(/*@START_MENU_TOKEN@*/.tail/*@END_MENU_TOKEN@*/)
+                    .truncationMode(.tail)
                 Text(addresField)
                     .foregroundStyle(.gray)
                     .font(.system(size: 9, weight: .light))
                 HStack(spacing: 1) {
                     Image(systemName: "pencil")
-                        .renderingMode(/*@START_MENU_TOKEN@*/.template/*@END_MENU_TOKEN@*/)
+                        .renderingMode(.template)
                     Text("\(restaurant.numberOfReviews)")
                 }
                 .foregroundStyle(.gray)

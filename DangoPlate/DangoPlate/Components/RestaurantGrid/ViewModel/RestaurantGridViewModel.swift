@@ -10,14 +10,15 @@ import Alamofire
 
 class RestaurantGridViewModel: ObservableObject {
     @Published var restaurantList: [Restaurant]
-    @Published var searchRadius: SearchRadius
     @Published var categoryFilter: FilterType.Category
-    @Published var foodTypeFilter: [FilterType.FoodType]
     @Published var hasNewRestaurantList = false
-    @Published var userTinyAddress = ""
+    @Published var region = ""
 
+    var searchRadius: SearchRadius
+    var foodTypeFilter: FilterType.FoodType = . none
     let searchType: SearchType
     
+    private var query = ""
     private let userLocation = LocationService.requestUserLocation()
     var latitude: String {
         return userLocation.latitude
@@ -31,30 +32,40 @@ class RestaurantGridViewModel: ObservableObject {
         searchType: SearchType,
         restaurantList: [Restaurant] = [],
         searchRadius: SearchRadius = .wide(3000, "3km"),
-        categoryFilter: FilterType.Category = .all,
-        foodTypeFilter: [FilterType.FoodType] = []
+        categoryFilter: FilterType.Category = .all
     ) {
         self.restaurantList = restaurantList
         self.searchRadius = searchRadius
         self.categoryFilter = categoryFilter
-        self.foodTypeFilter = foodTypeFilter
         self.searchType = searchType
     }
 }
 
 extension RestaurantGridViewModel {
-    func addRestaurantList(_ restaurant: Restaurant) {
-        restaurantList.append(restaurant)
+    func searchWithQuery(_ query: String) {
+        self.query = query
+        
+        if !restaurantList.isEmpty { restaurantList.removeAll() }
+        loadRestaurantList()
     }
     
-    func updateRestaurantList(_ query: String) {
-        restaurantList.removeAll()
-        loadRestaurantList(query)
+    func applyFoodTypeFilter(_ foodTypeFilter: FilterType.FoodType) {
+        self.foodTypeFilter = foodTypeFilter
+        
+        if !restaurantList.isEmpty { restaurantList.removeAll() }
+        loadRestaurantList()
     }
     
-    func loadRestaurantList(_ query: String) {
+    func applySearchRadius(_ searchRadius: SearchRadius) {
+        self.searchRadius = searchRadius
+        
+        if !restaurantList.isEmpty { restaurantList.removeAll() }
+        loadRestaurantList()
+    }
+    
+    func loadRestaurantList() {
         let requestURL = API.RESTAURANT_SEARCH
-        let queryParam = makeQueryParameter(searchType, query)
+        let queryParam = makeQueryParameter(searchType)
         let headers: HTTPHeaders = [.accept("application/json")]
 
         AF.request(requestURL, parameters: queryParam, headers: headers)
@@ -65,7 +76,7 @@ extension RestaurantGridViewModel {
             case .success(let res):
                 for document in res.data.documents {
                     let restaurant = Restaurant.createRestaurant(information: document)
-                    self.addRestaurantList(restaurant)
+                    self.restaurantList.append(restaurant)
                 }
                 self.hasNewRestaurantList = true
             case .failure(let error):
@@ -86,7 +97,7 @@ extension RestaurantGridViewModel {
                 response in
                 switch response.result {
                 case .success(let res):
-                    self.userTinyAddress = res.data.tinyAddress
+                    self.region = res.data.region
                 case .failure(let error):
                     print("Error: \(error.localizedDescription)")
                 }
@@ -95,16 +106,16 @@ extension RestaurantGridViewModel {
 }
 
 extension RestaurantGridViewModel {
-    private func makeQueryParameter(_ searchType: SearchType, _ query: String) -> [String: String] {
+    private func makeQueryParameter(_ searchType: SearchType) -> [String: String] {
+        let searchingQuery = self.foodTypeFilter == .none ? query : query + self.foodTypeFilter.rawValue + " "
         var queryParam = [String: String]()
         
         switch searchType {
         case .keyword:
-            if (!query.isEmpty) { queryParam["query"] = query + " 맛집" }
+            if (!searchingQuery.isEmpty) { queryParam["query"] = searchingQuery + "맛집" }
         case .nearyBy:
             if (!latitude.isEmpty && !longitude.isEmpty) {
-                
-                queryParam["query"] = "맛집"
+                queryParam["query"] = searchingQuery + "맛집"
                 queryParam["x"] = longitude
                 queryParam["y"] = latitude
                 queryParam["radius"] = getSearchRadius()

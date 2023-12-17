@@ -33,7 +33,7 @@ struct SearchView: View {
                     .focused($isSearchingFieldFocused)
                     .autocorrectionDisabled()
                     .onSubmit {
-                        restaurantGridViewModel.updateRestaurantList(query)
+                        restaurantGridViewModel.searchWithQuery(query)
                     }
                     .onAppear {
                         isSearchingFieldFocused = true

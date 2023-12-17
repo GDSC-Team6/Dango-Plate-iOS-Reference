@@ -17,7 +17,7 @@ struct NearbyRestaurantView: View {
             RestaurantGridView(restaurantGridViewModel: restaurantGridViewModel)
         }
         .onAppear() {
-            restaurantGridViewModel.loadRestaurantList("")
+            restaurantGridViewModel.loadRestaurantList()
             restaurantGridViewModel.loadUserLocation()
         }
     }
@@ -32,7 +32,7 @@ struct HeaderView: View {
                 Text("지금 보고있는 지역은")
                     .font(.caption)
                     .fontWeight(.light)
-                Text("\(restaurantGridViewModel.userTinyAddress)")
+                Text("\(restaurantGridViewModel.region)")
                     .font(.title3)
                     .fontWeight(.light)
             }

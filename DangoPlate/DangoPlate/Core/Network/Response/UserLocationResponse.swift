@@ -8,10 +8,10 @@
 import Foundation
 
 struct UserLocationData: Codable {
-    let tinyAddress: String
+    let region: String
     
     enum CodingKeys: String, CodingKey {
-        case tinyAddress = "depth2"
+        case region = "depth2"
     }
 }
 
