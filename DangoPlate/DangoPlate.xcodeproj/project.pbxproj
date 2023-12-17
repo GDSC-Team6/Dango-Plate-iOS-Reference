@@ -44,6 +44,8 @@
 		CC59E4202AD419A200CE02C2 /* DangoPlateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC59E41F2AD419A200CE02C2 /* DangoPlateUITestsLaunchTests.swift */; };
 		CC59E42E2AD41E7700CE02C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC59E42D2AD41E7700CE02C2 /* Launch Screen.storyboard */; };
 		CC59E4332AD5732C00CE02C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC59E4322AD5732C00CE02C2 /* AppDelegate.swift */; };
+		CC60335D2B2DC18400BFF5A2 /* UserLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC60335C2B2DC18400BFF5A2 /* UserLocationResponse.swift */; };
+		CC6033632B2DD73700BFF5A2 /* FoodTypeFilterModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6033622B2DD73700BFF5A2 /* FoodTypeFilterModal.swift */; };
 		CC67704F2ADA83A80039A15B /* RestaurantGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC67704E2ADA83A80039A15B /* RestaurantGridView.swift */; };
 		CC6770512ADA83BB0039A15B /* RestaurantGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6770502ADA83BB0039A15B /* RestaurantGridViewModel.swift */; };
 		CC8F11012AFA30DD0045B4C0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8F11002AFA30DD0045B4C0 /* API.swift */; };
@@ -128,6 +130,8 @@
 		CC59E41F2AD419A200CE02C2 /* DangoPlateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangoPlateUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CC59E42D2AD41E7700CE02C2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CC59E4322AD5732C00CE02C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CC60335C2B2DC18400BFF5A2 /* UserLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationResponse.swift; sourceTree = "<group>"; };
+		CC6033622B2DD73700BFF5A2 /* FoodTypeFilterModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTypeFilterModal.swift; sourceTree = "<group>"; };
 		CC67704E2ADA83A80039A15B /* RestaurantGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantGridView.swift; sourceTree = "<group>"; };
 		CC6770502ADA83BB0039A15B /* RestaurantGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantGridViewModel.swift; sourceTree = "<group>"; };
 		CC8F11002AFA30DD0045B4C0 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -293,6 +297,7 @@
 		CC193E962B15ECB7009B31B0 /* CustomModal */ = {
 			isa = PBXGroup;
 			children = (
+				CC60335E2B2DD6D800BFF5A2 /* FoodType */,
 				CC5D46E12B164A5F0083B7FE /* SearchRadius */,
 			);
 			path = CustomModal;
@@ -586,6 +591,22 @@
 			path = SearchRadius;
 			sourceTree = "<group>";
 		};
+		CC60335E2B2DD6D800BFF5A2 /* FoodType */ = {
+			isa = PBXGroup;
+			children = (
+				CC60335F2B2DD6EF00BFF5A2 /* View */,
+			);
+			path = FoodType;
+			sourceTree = "<group>";
+		};
+		CC60335F2B2DD6EF00BFF5A2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC6033622B2DD73700BFF5A2 /* FoodTypeFilterModal.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CC67704B2ADA7F710039A15B /* RestaurantGrid */ = {
 			isa = PBXGroup;
 			children = (
@@ -716,6 +737,7 @@
 				ADCAF7992B21A038004DDCE0 /* DetailsResponse.swift */,
 				CCFF152C2AF9FAC30012E7D5 /* SearchResponse.swift */,
 				ADCAF7AE2B23068C004DDCE0 /* CommonResponse.swift */,
+				CC60335C2B2DC18400BFF5A2 /* UserLocationResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -908,8 +930,10 @@
 				CC59E4332AD5732C00CE02C2 /* AppDelegate.swift in Sources */,
 				CC4ED8C72AD579BC0089F4F3 /* Restaurant.swift in Sources */,
 				ADCAF7962B219FBD004DDCE0 /* DetailsView.swift in Sources */,
+				CC60335D2B2DC18400BFF5A2 /* UserLocationResponse.swift in Sources */,
 				CC4ED8B72AD579310089F4F3 /* RestaurantView.swift in Sources */,
 				CC98DEAE2AD9C0CA001A8ABD /* CustomTabBarViewModel.swift in Sources */,
+				CC6033632B2DD73700BFF5A2 /* FoodTypeFilterModal.swift in Sources */,
 				CCD8D6322AE8273E00FC3357 /* SortType.swift in Sources */,
 				CC4ED8CB2AD579CE0089F4F3 /* MyPage.swift in Sources */,
 				ADCAF7AF2B23068C004DDCE0 /* CommonResponse.swift in Sources */,
@@ -1110,7 +1134,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DangoPlate/Preview Content\"";
-				DEVELOPMENT_TEAM = 3B7S82URMY;
+				DEVELOPMENT_TEAM = YWNQ4RZBTS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DangoPlate/Info.plist;
@@ -1146,7 +1170,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DangoPlate/Preview Content\"";
-				DEVELOPMENT_TEAM = 3B7S82URMY;
+				DEVELOPMENT_TEAM = YWNQ4RZBTS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DangoPlate/Info.plist;

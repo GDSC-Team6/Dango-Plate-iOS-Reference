@@ -68,6 +68,7 @@ class LoginManager : ObservableObject{
                    let data = JSON["data"] as? [String: Any],  // 'data' 객체 추출
                    let newAccessToken = data["accessToken"] as? String,  // 'data' 객체 안에서 'accessToken' 추출
                    let newRefreshToken = data["refreshToken"] as? String {  // 'data' 객체 안에서 'refreshToken' 추출
+                    print("accessToken: \(newAccessToken)")
                     print("newRefreshToken: \(newRefreshToken)")
                     // Keychain에 토큰 저장
                     saveTokens(accessToken: newAccessToken, refreshToken: newRefreshToken)
