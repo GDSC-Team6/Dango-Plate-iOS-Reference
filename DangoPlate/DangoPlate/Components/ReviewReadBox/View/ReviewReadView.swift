@@ -9,36 +9,61 @@ import SwiftUI
 
 struct ReviewReadView: View {
     @ObservedObject var reviewReadViewModel: ReviewReadViewModel
+    @State var isPreview = true
+    
+    var gradeToText: String {
+        switch (reviewReadViewModel.review.grade) {
+        case 1:
+            return "별로다"
+        case 5:
+            return "맛있다"
+        default:
+            return "괜찮다"
+        }
+    }
+    
+    var gradeToColor: Color {
+        switch (reviewReadViewModel.review.grade) {
+        case 1:
+            return .red
+        case 5:
+            return .blue
+        default:
+            return .green
+        }
+    }
     
     var body: some View {
         VStack(spacing: 5) {
             HStack {
-                ProfileImage(imageUrl:  "https://image.bugsm.co.kr/album/images/200/200258/20025825.jpg?version=20210428040249.0")
+                ProfileImage(imageUrl: reviewReadViewModel.review.userInfo.profileUrl)
                 
                 VStack (alignment: .leading) {
-                    Text("닉네임") // 유저 정보 필요
+                    Text(reviewReadViewModel.review.userInfo.name) // 유저 정보 필요
                         .font(.callout)
                         .frame(alignment: .leading)
-                    Text("작성글 / 팔로워")   // 얘도 필요
-                        .font(.caption)
+//                    Text("작성글 / 팔로워")   // 얘도 필요
+//                        .font(.caption)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 Spacer()
-                Text("괜찮다") // 얘도 필요
+                Text(gradeToText) // 얘도 필요
+                    .padding()
+                    .foregroundColor(gradeToColor)
             }
             .frame(height: 60)
             
             Text(reviewReadViewModel.review.content)
-            .lineLimit(4)
+                .lineLimit(isPreview ? 4 : 0)
             .frame(alignment: .leading)
+            .multilineTextAlignment(.leading)
             
             // 이미지
-            SwipeableView(images: ["https://www.michaelfcollins3.me/posts/2021/01/creating-multiple-scenes-in-a-swiftui-app/multiple_scene_model.png",
-                                  "https://www.michaelfcollins3.me/posts/2021/01/creating-multiple-scenes-in-a-swiftui-app/show_all_windows.jpeg"])
+            SwipeableView(images: reviewReadViewModel.review.imageUrls)
             
         }
         .background(.white)
-        .padding()
+//        .padding()
         .cornerRadius(10)
     }
 }
@@ -53,9 +78,6 @@ struct ProfileImage: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 50)
-            } else if phase.error != nil {
-                Text("Image not available")
-                    .frame(height: 20)
             } else {
                 ProgressView()
                     .frame(height: 50)

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import CoreLocation
 
 struct DetailsView: View {
     @ObservedObject var detailsViewModel: DetailsViewModel
@@ -17,20 +18,15 @@ struct DetailsView: View {
                 
                 DetailHeaderView(detailsViewModel: detailsViewModel)
                 Divider()
-                MapView(
-                    restaurantLatitude: detailsViewModel.info.latitude,
-                    restaurantLongitude: detailsViewModel.info.longitude,
-                    restaurantAddress: detailsViewModel.info.address
-                )
-                .padding(10)
-                .cornerRadius(10)
+                MapView(mapViewModel: MapViewModel(restaurant: detailsViewModel.info))
                 
                 Divider()
                 
                 LazyVStack {
-                    ForEach(detailsViewModel.bestReviews.prefix(3), id: \.self) { review in
+                    ForEach(detailsViewModel.bestReviews, id: \.self) { review in
                         ReviewReadView(reviewReadViewModel: ReviewReadViewModel(review: review))
                             .padding(5)
+                            .cornerRadius(10)
                     }
                 }
                 .background(Color(UIColor.systemGray6))
@@ -46,14 +42,18 @@ struct DetailsView: View {
 
 struct DetailHeaderView: View {
     @ObservedObject var detailsViewModel: DetailsViewModel
+    @State var isWritingReview = false
+    var formattedGrade: String {
+        return String(format: "%.1f", detailsViewModel.gradeAvg)
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack(spacing: 2.0) {
                 Spacer()
-                RestaurantImageView(url: detailsViewModel.thumbnailUrls.first ?? "")
-                RestaurantImageView(url: detailsViewModel.thumbnailUrls.first ?? "")
-                RestaurantImageView(url: detailsViewModel.thumbnailUrls.last ?? "")
+                ForEach(detailsViewModel.bestReviews.prefix(4), id: \.self) { review in
+                    RestaurantImageView(url: review.imageUrls.first ?? "")
+                }
                 Spacer()
             }
     
@@ -64,14 +64,14 @@ struct DetailHeaderView: View {
                 VStack(alignment: .leading) {
                     // 식당 이름
                     Text(detailsViewModel.info.placeName)
-                        .font(.title)
+                        .font(.title2)
                     
-                    Text("조회수 및 즐겨찾기")
-                        .font(.caption)
+//                    Text("조회수 및 즐겨찾기")
+//                        .font(.caption)
                 }
                 
                 // 평점
-                Text("4.5")
+                Text(formattedGrade)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .font(.title)
                     .frame(maxWidth: .infinity, alignment: .trailing)
@@ -83,25 +83,36 @@ struct DetailHeaderView: View {
             Divider()
             
             HStack {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Spacer()
+                Button(action: {
+                    detailsViewModel.registerFavorite()
+                }, label: {
                     Text("가고싶다")
                     .foregroundStyle(.dangoBrown)
                 })
-                .frame(width: 100, height: 80)
+                .frame(height: 60)
                 
+                Spacer()
                 
                 Button(action: {}, label: {
                     Text("가봤어요")
                     .foregroundStyle(.dangoBrown)
                 })
-                .frame(width: 100, height: 80)
+                .frame(height: 60)
                 
+                Spacer()
                 
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {
+                    self.isWritingReview.toggle()
+                }, label: {
                     Text("리뷰쓰기")
                     .foregroundStyle(.dangoBrown)
                 })
-                .frame(width: 100, height: 80)
+                .sheet(isPresented: $isWritingReview) {
+                    ReviewWriteView(reviewWriteViewModel: ReviewWriteViewModel(shopId: UInt(detailsViewModel.info.id)!))
+                }
+                .frame(height: 60)
+                Spacer()
             }
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
             
@@ -111,28 +122,24 @@ struct DetailHeaderView: View {
 }
 
 struct MapView: View {
-    let restaurantLatitude: String  // string?
-    let restaurantLongitude: String // string?
-    let restaurantAddress: String
-    
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.5666791, longitude: 126.9782914), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+    @ObservedObject var mapViewModel: MapViewModel
     
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
-                Text(restaurantAddress)
+                Text(mapViewModel.restaurantAddress)
                     .font(.callout)
                     .bold()
             }
             .padding([.top, .leading])
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .topLeading)
             
-            
             // 지도
-            Spacer()
-            Map(coordinateRegion: $region, showsUserLocation: true)
+            Map(coordinateRegion: $mapViewModel.region, annotationItems: mapViewModel.annotations) { item in
+                MapMarker(coordinate: item.location, tint: item.color)
+            }
                 .frame(height: 100)
-                .padding([.top])
+                .padding()
         }
     }
 }
@@ -147,13 +154,7 @@ struct RestaurantImageView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 150)
-            } else if phase.error != nil {
-                Text("Image not available")
-                    .frame(height: 150)
-            } else {
-                ProgressView()
-                    .frame(height: 150)
-            }
+            } 
         }
     }
 }
