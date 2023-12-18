@@ -28,5 +28,8 @@ struct API {
     static var REVIEW: String {
         return BASE_URL + "/review"
     }
+    static var FAVORITE: String {
+        return BASE_URL + "/favorite"
+    }
 }
 
