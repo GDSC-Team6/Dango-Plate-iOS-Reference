@@ -19,8 +19,7 @@ struct RestaurantGridView: View {
         }
         .scrollIndicators(.never)
         .fullScreenCover(isPresented: $selectedRestaurantViewModel.showDetailsView) {
-//            DetailsView(detailsViewModel: DetailsViewModel(info: selectedRestaurantViewModel.selectedRestaurant), showDetailsView: $selectedRestaurantViewModel.showDetailsView)
-            DetailsView(detailsViewModel: DetailsViewModel(info: selectedRestaurantViewModel.selectedRestaurant))
+            DetailsView(detailsViewModel: DetailsViewModel(info: selectedRestaurantViewModel.selectedRestaurant), showDetailsView: $selectedRestaurantViewModel.showDetailsView)
         }
     }
 }
