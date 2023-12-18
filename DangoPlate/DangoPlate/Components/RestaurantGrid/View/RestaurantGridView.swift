@@ -9,20 +9,26 @@ import SwiftUI
 
 struct RestaurantGridView: View {
     @ObservedObject var restaurantGridViewModel: RestaurantGridViewModel
+    @StateObject var selectedRestaurantViewModel = SelectedRestaurantViewModel()
 
     var body: some View {
         ScrollView {
             RestaurantListOptionView(restaurantGridViewModel: restaurantGridViewModel)
             Divider()
-            RestaurantListGridView(viewModel: restaurantGridViewModel)
+            RestaurantListGridView(restaurantGridViewModel, selectedRestaurantViewModel)
         }
         .scrollIndicators(.never)
+        .fullScreenCover(isPresented: $selectedRestaurantViewModel.showDetailsView) {
+//            DetailsView(detailsViewModel: DetailsViewModel(info: selectedRestaurantViewModel.selectedRestaurant), showDetailsView: $selectedRestaurantViewModel.showDetailsView)
+            DetailsView(detailsViewModel: DetailsViewModel(info: selectedRestaurantViewModel.selectedRestaurant))
+        }
     }
 }
 
 private struct RestaurantListOptionView: View {
     @ObservedObject var restaurantGridViewModel: RestaurantGridViewModel
-    @State private var showModal = false
+    @State private var showSearchRadiusModal = false
+    @State private var showFoodTypeFilterModal = false
 
     fileprivate var body: some View {
         HStack {
@@ -32,7 +38,7 @@ private struct RestaurantListOptionView: View {
             
             if (restaurantGridViewModel.searchType == .nearyBy) {
                 Button(action: {
-                    showModal.toggle()
+                    showSearchRadiusModal.toggle()
                 } , label: {
                     switch restaurantGridViewModel.searchRadius {
                     case .narrow(_, let narrow):
@@ -48,12 +54,21 @@ private struct RestaurantListOptionView: View {
                     }
                 })
             }
-            Button(action: {}, label: {
-                Image("filter_noSelected")
+            Button(action: {
+                showFoodTypeFilterModal.toggle()
+            }, label: {
+                if (restaurantGridViewModel.foodTypeFilter == .none) {
+                    Image("filter_noSelected")
+                } else {
+                    Image("filterWithBadge")
+                }
             })
         }
-        .fullScreenCover(isPresented: $showModal) {
-            SelectedSearchRadiusModalView(restaurantGridViewModel: restaurantGridViewModel, showModal: $showModal)
+        .fullScreenCover(isPresented: $showSearchRadiusModal) {
+            SelectedSearchRadiusModalView(restaurantGridViewModel: restaurantGridViewModel, showModal: $showSearchRadiusModal)
+        }
+        .fullScreenCover(isPresented: $showFoodTypeFilterModal) {
+            FoodTypeFilterModal(restaurantGridViewModel: restaurantGridViewModel, showModal: $showFoodTypeFilterModal)
         }
         .transaction { transaction in
             transaction.disablesAnimations = true
@@ -64,12 +79,20 @@ private struct RestaurantListOptionView: View {
 }
 
 private struct RestaurantListGridView: View {
-    @ObservedObject var viewModel: RestaurantGridViewModel
+    @ObservedObject var restaurantViewModel: RestaurantGridViewModel
+    @ObservedObject var selectedRestaurantViewModel: SelectedRestaurantViewModel
+    
+    fileprivate init(
+        _ restaurantViewModel: RestaurantGridViewModel,
+        _ selectedRestaurantViewModel: SelectedRestaurantViewModel) {
+        self.restaurantViewModel = restaurantViewModel
+        self.selectedRestaurantViewModel = selectedRestaurantViewModel
+    }
 
     fileprivate var body: some View {
         LazyVGrid(columns: [GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10)], spacing: 20) {
-            ForEach(viewModel.restaurantList.indices, id: \.self) { idx in
-                RestaurantBasicInfoView(restaurant: viewModel.restaurantList[idx], idx: idx + 1)
+            ForEach(restaurantViewModel.restaurantList.indices, id: \.self) { idx in
+                RestaurantBasicInfoView(selectedRestaurantViewModel: selectedRestaurantViewModel, restaurant: restaurantViewModel.restaurantList[idx], idx: idx + 1)
             }
         }
         .padding()
@@ -77,6 +100,7 @@ private struct RestaurantListGridView: View {
 }
 
 private struct RestaurantBasicInfoView: View {
+    @ObservedObject var selectedRestaurantViewModel: SelectedRestaurantViewModel
     let restaurant: Restaurant
     let idx: Int
     var addresField: String {
@@ -99,18 +123,22 @@ private struct RestaurantBasicInfoView: View {
                 Text("\(idx). \(restaurant.placeName)")
                     .font(.system(size: 15, weight: .regular))
                     .lineLimit(1)
-                    .truncationMode(/*@START_MENU_TOKEN@*/.tail/*@END_MENU_TOKEN@*/)
+                    .truncationMode(.tail)
                 Text(addresField)
                     .foregroundStyle(.gray)
                     .font(.system(size: 9, weight: .light))
                 HStack(spacing: 1) {
                     Image(systemName: "pencil")
-                        .renderingMode(/*@START_MENU_TOKEN@*/.template/*@END_MENU_TOKEN@*/)
+                        .renderingMode(.template)
                     Text("\(restaurant.numberOfReviews)")
                 }
                 .foregroundStyle(.gray)
                 .font(.caption)
             }
+        }
+        .onTapGesture {
+            selectedRestaurantViewModel.selectedRestaurant = restaurant
+            selectedRestaurantViewModel.showDetailsView.toggle()
         }
     }
 }
