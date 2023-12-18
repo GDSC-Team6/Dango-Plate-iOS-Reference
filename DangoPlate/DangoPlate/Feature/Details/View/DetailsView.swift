@@ -11,11 +11,16 @@ import CoreLocation
 
 struct DetailsView: View {
     @ObservedObject var detailsViewModel: DetailsViewModel
+    @Binding var showDetailsView: Bool
     
     var body: some View {
         ScrollView {
             VStack( spacing: 8.0) {
-                
+                Button(action: {
+                    showDetailsView.toggle()
+                }, label: {
+                    Text("Button")
+                })
                 DetailHeaderView(detailsViewModel: detailsViewModel)
                 Divider()
                 MapView(mapViewModel: MapViewModel(restaurant: detailsViewModel.info))
@@ -160,5 +165,5 @@ struct RestaurantImageView: View {
 }
 
 #Preview {
-    DetailsView(detailsViewModel: DetailsViewModel(info: DummyData.createDummyList(capacity: 1).first!))
+    DetailsView(detailsViewModel: DetailsViewModel(info: DummyData.createDummyList(capacity: 1).first!), showDetailsView: Binding<Bool>.constant(false))
 }
