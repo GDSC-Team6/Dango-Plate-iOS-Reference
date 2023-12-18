@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD1BD1582B27A213001CC38B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BD1572B27A213001CC38B /* MapViewModel.swift */; };
 		AD3A27422B24408F00B6D41B /* ReviewReadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3A27412B24408F00B6D41B /* ReviewReadViewModel.swift */; };
 		AD4B766C2B2313A400888EC7 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4B766B2B2313A400888EC7 /* PhotoPicker.swift */; };
 		ADCAF7962B219FBD004DDCE0 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCAF7952B219FBD004DDCE0 /* DetailsView.swift */; };
@@ -89,6 +90,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD1BD1572B27A213001CC38B /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		AD3A27412B24408F00B6D41B /* ReviewReadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewReadViewModel.swift; sourceTree = "<group>"; };
 		AD4B766B2B2313A400888EC7 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		ADCAF7952B219FBD004DDCE0 /* DetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
@@ -202,7 +204,6 @@
 		ADCAF7902B219F17004DDCE0 /* Review */ = {
 			isa = PBXGroup;
 			children = (
-				ADCAF7A52B221EB3004DDCE0 /* Read */,
 				ADCAF7A62B221EBF004DDCE0 /* Write */,
 			);
 			path = Review;
@@ -220,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				ADCAF7972B219FCE004DDCE0 /* DetailsViewModel.swift */,
+				AD1BD1572B27A213001CC38B /* MapViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -256,13 +258,13 @@
 			path = Review;
 			sourceTree = "<group>";
 		};
-		ADCAF7A52B221EB3004DDCE0 /* Read */ = {
+		ADCAF7A52B221EB3004DDCE0 /* ReviewReadBox */ = {
 			isa = PBXGroup;
 			children = (
 				ADCAF7942B219F8D004DDCE0 /* View */,
 				ADCAF7932B219F85004DDCE0 /* ViewModel */,
 			);
-			path = Read;
+			path = ReviewReadBox;
 			sourceTree = "<group>";
 		};
 		ADCAF7A62B221EBF004DDCE0 /* Write */ = {
@@ -630,6 +632,7 @@
 		CC98DEA72AD9C057001A8ABD /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				ADCAF7A52B221EB3004DDCE0 /* ReviewReadBox */,
 				CC193E962B15ECB7009B31B0 /* CustomModal */,
 				CC67704B2ADA7F710039A15B /* RestaurantGrid */,
 				CC98DEA82AD9C06E001A8ABD /* CustomTabBar */,
@@ -939,6 +942,7 @@
 				CC67704F2ADA83A80039A15B /* RestaurantGridView.swift in Sources */,
 				CC193E9A2B15ECF7009B31B0 /* SelectedSearchRadiusModalView.swift in Sources */,
 				CC59E4032AD419A100CE02C2 /* DangoPlateApp.swift in Sources */,
+				AD1BD1582B27A213001CC38B /* MapViewModel.swift in Sources */,
 				CCD8D6382AE83AF700FC3357 /* Path.swift in Sources */,
 				CC33DD812AE8C70100F392D4 /* String+Extensions.swift in Sources */,
 				CC8F11012AFA30DD0045B4C0 /* API.swift in Sources */,

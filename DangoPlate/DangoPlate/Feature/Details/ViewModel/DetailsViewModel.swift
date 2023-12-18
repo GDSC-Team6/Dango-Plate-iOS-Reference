@@ -12,7 +12,7 @@ class DetailsViewModel: ObservableObject {
     @Published var info: Restaurant
     @Published var thumbnailUrls: [String] = []
     @Published var bestReviews: [Review] = []   // string?
-    // 평점, 조회수
+    @Published var gradeAvg: Double = 3
     
     init(info: Restaurant) {
         self.info = info
@@ -36,6 +36,7 @@ extension DetailsViewModel {
             switch response.result {
             case .success(let body):
                 self.thumbnailUrls = body.data.imageUrls
+                self.gradeAvg = body.data.gradeAvg
                 for review in body.data.reviewIds {
                     self.loadBestReviews(reviewId: review)
                 }
@@ -71,13 +72,35 @@ extension DetailsViewModel {
                         shopId: shopId,
                         userId: userId,
                         content: review.data.content,
-                        imageUrls: review.data.urls
+                        imageUrls: review.data.urls,
+                        userInfo: UserInfo(name: review.data.name, profileUrl: review.data.profileUrl),
+                        grade: review.data.grade
                     ))
-                                       
                     
                 case .failure(let error):
                     print(error.localizedDescription)
                     return
+                }
+        }
+    }
+    
+    func registerFavorite() {
+        let requestURL = "\(API.FAVORITE)/\(info.id)"
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(getATK())",
+            "Accept": "application/json"
+        ]
+
+        AF.request(requestURL, method: .post, headers: headers)
+            .validate(statusCode: 200..<300)
+            .responseDecodable(of: CommonResponse.self) {
+                response in
+                print(String(data: response.data!, encoding: .utf8)!)
+                switch response.result {
+                case .success(_):
+                    break
+                case .failure(let error):
+                    print("\(error.localizedDescription)")
                 }
         }
     }

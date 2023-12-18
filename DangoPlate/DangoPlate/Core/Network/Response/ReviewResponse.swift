@@ -13,11 +13,14 @@ struct ReviewData: Codable {
     let shopId: UInt    // UInt
     let urls: [String]
     let userId: UInt    // UInt
+    let name: String
+    let profileUrl: String
+    let grade: UInt
     
     enum CodingKeys: String, CodingKey {
         case shopId = "shop_id"
         case userId = "user_id"
-        case content, id, urls
+        case content, id, urls, name, profileUrl, grade
     }
 }
 

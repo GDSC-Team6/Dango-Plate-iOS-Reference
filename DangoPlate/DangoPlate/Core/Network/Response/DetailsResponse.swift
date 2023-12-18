@@ -12,9 +12,10 @@ struct DetailsData: Codable {
     let imageUrls: [String]
     let reviewIds: [UInt]    // UInt
     let shopUid: UInt        // UInt
+    let gradeAvg: Double
     
     enum CodingKeys: String, CodingKey {
-        case id, imageUrls, reviewIds, shopUid
+        case id, imageUrls, reviewIds, shopUid, gradeAvg
     }
 }
 

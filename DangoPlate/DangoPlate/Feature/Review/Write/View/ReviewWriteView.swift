@@ -15,7 +15,7 @@ struct ReviewWriteView: View {
 
     var body: some View {
         VStack {
-            HStack(spacing: 16) {
+            HStack() {
                 RatingButton(title: "맛있다", isSelected:
                                 reviewWriteViewModel.selectedRating == 5) {
                     reviewWriteViewModel.selectedRating = 5
@@ -29,7 +29,7 @@ struct ReviewWriteView: View {
                     reviewWriteViewModel.selectedRating = 1
                 }
             }
-            .padding(.horizontal, 20)
+            .padding(.horizontal, 5)
             
             Divider()
             
@@ -73,10 +73,11 @@ struct RatingButton: View {
                 .foregroundColor(isSelected ? .white : .black)
                 .padding()
                 .frame(maxWidth: .infinity)
-                .background(isSelected ? Color.blue : Color(UIColor.systemGray4))
+                .background(isSelected ? Color.dangoBrown : Color(UIColor.systemGray4))
                 .cornerRadius(10)
         }
         .buttonStyle(PlainButtonStyle())
+        .padding()
     }
 }
 
