@@ -11,10 +11,23 @@ import CoreLocation
 
 struct DetailsView: View {
     @ObservedObject var detailsViewModel: DetailsViewModel
+    @Binding var showDetailsView: Bool
     
     var body: some View {
         ScrollView {
             VStack( spacing: 8.0) {
+                HStack {
+                    Button(action: {
+                        showDetailsView.toggle()
+                    }, label: {
+                        Image(systemName: "arrowshape.backward.fill")
+                    })
+                    .foregroundColor(.dangoBrown)
+                    .padding()
+                    
+                    Spacer()
+                }
+                .frame(height: 30)
                 
                 DetailHeaderView(detailsViewModel: detailsViewModel)
                 Divider()
@@ -51,7 +64,7 @@ struct DetailHeaderView: View {
         VStack(alignment: .leading) {
             HStack(spacing: 2.0) {
                 Spacer()
-                ForEach(detailsViewModel.bestReviews.prefix(4), id: \.self) { review in
+                ForEach(detailsViewModel.bestReviews.prefix(3), id: \.self) { review in
                     RestaurantImageView(url: review.imageUrls.first ?? "")
                 }
                 Spacer()
@@ -109,7 +122,10 @@ struct DetailHeaderView: View {
                     .foregroundStyle(.dangoBrown)
                 })
                 .sheet(isPresented: $isWritingReview) {
-                    ReviewWriteView(reviewWriteViewModel: ReviewWriteViewModel(shopId: UInt(detailsViewModel.info.id)!))
+                    ReviewWriteView(reviewWriteViewModel: ReviewWriteViewModel(shopId: UInt(detailsViewModel.info.id)!), isPresented: $isWritingReview)
+                        .onDisappear() {
+                            detailsViewModel.loadDetails()
+                        }
                 }
                 .frame(height: 60)
                 Spacer()
@@ -160,5 +176,5 @@ struct RestaurantImageView: View {
 }
 
 #Preview {
-    DetailsView(detailsViewModel: DetailsViewModel(info: DummyData.createDummyList(capacity: 1).first!))
+    DetailsView(detailsViewModel: DetailsViewModel(info: DummyData.createDummyList(capacity: 1).first!), showDetailsView: Binding<Bool>.constant(false))
 }

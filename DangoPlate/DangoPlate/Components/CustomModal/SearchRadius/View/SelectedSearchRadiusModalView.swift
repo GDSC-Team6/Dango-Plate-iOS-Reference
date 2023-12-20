@@ -23,7 +23,7 @@ struct SelectedSearchRadiusModalView: View {
         return (
             Rectangle()
             .ignoresSafeArea()
-            .opacity(0.6)
+            .opacity(0.5)
         )
     }
 }
@@ -32,7 +32,7 @@ private struct SelectSearchRadiusModalView : View {
     @EnvironmentObject private var pathModel: PathModel
     @ObservedObject var restaurantGridViewModel: RestaurantGridViewModel
     @Binding var showModal: Bool
-    @State private var sliderValue: Double = 0.5
+    @State var sliderValue: Double = 0.5
 
     private var searchRadius: SearchRadius {
         switch sliderValue {
@@ -75,8 +75,7 @@ extension SelectSearchRadiusModalView {
             VStack {
                 HStack {
                     Button(action: {
-                        restaurantGridViewModel.searchRadius = searchRadius
-                        restaurantGridViewModel.updateRestaurantList("")
+                        restaurantGridViewModel.applySearchRadius(searchRadius)
                         showModal.toggle()
                     }, label: {
                         Image(systemName: "chevron.down")

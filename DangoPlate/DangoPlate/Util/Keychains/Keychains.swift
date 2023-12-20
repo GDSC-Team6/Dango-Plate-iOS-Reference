@@ -26,7 +26,7 @@ private let keychain = Keychain(service: "com.gdsc.team6.DangoPlate.DangoPlate")
 func getATK() -> String {
     do {
         let accessToken = try keychain.get("accessToken")
-        return accessToken!
+        return accessToken ?? ""
     } catch {
         print("Error retrieving tokens from keychain: \(error)")
         return ""
@@ -35,7 +35,7 @@ func getATK() -> String {
 func getRTK() -> String {
     do {
         let refreshToken = try keychain.get("refreshToken")
-        return refreshToken!
+        return refreshToken ?? ""
     } catch {
         print("Error retrieving tokens from keychain: \(error)")
         return ""
