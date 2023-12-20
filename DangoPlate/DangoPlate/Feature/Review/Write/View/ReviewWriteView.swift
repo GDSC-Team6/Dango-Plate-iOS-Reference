@@ -12,6 +12,7 @@ import PhotosUI
 struct ReviewWriteView: View {
     @ObservedObject var reviewWriteViewModel: ReviewWriteViewModel
     @State var showImagePicker: Bool = true
+    @Binding var isPresented: Bool
 
     var body: some View {
         VStack {
@@ -42,6 +43,7 @@ struct ReviewWriteView: View {
             
             Button(action: {
                 reviewWriteViewModel.postReview()
+                isPresented = false
             }) {
                 Text("입력 완료")
                     .font(.headline)
@@ -81,6 +83,6 @@ struct RatingButton: View {
     }
 }
 
-#Preview {
-    ReviewWriteView(reviewWriteViewModel: ReviewWriteViewModel(shopId: 1139647183))
-}
+//#Preview {
+//    ReviewWriteView(reviewWriteViewModel: ReviewWriteViewModel(shopId: 1139647183), isPresented: true)
+//}

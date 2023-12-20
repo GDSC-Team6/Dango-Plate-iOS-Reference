@@ -10,28 +10,28 @@ import Alamofire
 import Combine
 import UIKit
 
-struct ReviewObject: Codable {
-    let grade: UInt
-    let review_content: String
-    let shop_uid: UInt
-    
-    enum CodingKeys: String, CodingKey {
-            case grade, review_content, shop_uid
-        }
-
-        func encode(to encoder: Encoder) throws {
-            var container = encoder.container(keyedBy: CodingKeys.self)
-            try container.encode(grade, forKey: .grade)
-            try container.encode(review_content, forKey: .review_content)
-            try container.encode(shop_uid, forKey: .shop_uid)
-        }
-}
+//struct ReviewObject: Codable {
+//    let grade: UInt
+//    let review_content: String
+//    let shop_uid: UInt
+//    
+//    enum CodingKeys: String, CodingKey {
+//            case grade, review_content, shop_uid
+//        }
+//
+//        func encode(to encoder: Encoder) throws {
+//            var container = encoder.container(keyedBy: CodingKeys.self)
+//            try container.encode(grade, forKey: .grade)
+//            try container.encode(review_content, forKey: .review_content)
+//            try container.encode(shop_uid, forKey: .shop_uid)
+//        }
+//}
 
 class ReviewWriteViewModel: ObservableObject {
     let shopId: UInt
     @Published var contentText: String = ""
     @Published var images: [UIImage] = []
-    @Published var selectedRating: UInt = 3
+    @Published var selectedRating: Double = 3
     
     init(shopId: UInt) {
         self.shopId = shopId
@@ -48,30 +48,31 @@ extension ReviewWriteViewModel {
         ]
         let parameters = [
             "review_content": contentText,
-            "shop_uid": shopId
+            "shop_uid": shopId,
+            "grade": selectedRating
         ] as [String : Any]
         
-        let review = ReviewObject(grade: selectedRating ?? 3, review_content: contentText, shop_uid: shopId)
+//        let review = ReviewObject(grade: selectedRating ?? 3, review_content: contentText, shop_uid: shopId)
         
         var result = false
         
         AF.upload(multipartFormData: { (multipartFormData) in
-//            for (key, value) in parameters {
-//                multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
-//            }
-            
-            if let reviewData = try? JSONEncoder().encode(review) {
-                print(reviewData)
-                multipartFormData.append(reviewData, withName: "review")
+            for (key, value) in parameters {
+                multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
             }
+//            if let reviewData = try? JSONEncoder().encode(review) {
+//                print(reviewData)
+//                multipartFormData.append(reviewData, withName: "review")
+//            }
             
             for (index, image) in self.images.enumerated() {
                 if let jpegImage = image.jpegData(compressionQuality: 0.5) {
                     multipartFormData.append(
-                        jpegImage, withName: "images",
-                        fileName: "image_\(index).jpg",
+                        jpegImage,
+                        withName: "images",
+                        fileName: "images_\(index).jpeg",
                         mimeType: "image/jpeg"
-                        )
+                    )
                 }
             }
         }, to: requestURL, method: .post, headers: headers)
@@ -88,7 +89,7 @@ extension ReviewWriteViewModel {
                 print("\(error.localizedDescription)")
             }
         }
-    
+        
         return result
     }
 }
