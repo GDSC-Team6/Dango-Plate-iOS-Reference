@@ -28,7 +28,7 @@ extension DetailsViewModel {
             "Authorization": "Bearer \(getATK())",
             "Accept": "application/json"
         ]
-
+        
         AF.request(requestURL, parameters: queryParam, headers: headers)
             .validate(statusCode: 200..<300)
             .responseDecodable(of: DetailsResponse.self) {
@@ -54,7 +54,6 @@ extension DetailsViewModel {
             .authorization("Bearer \(getATK())"),
             .accept("application/json")
         ]
-        
         AF.request(requestURL, parameters: queryParam, headers: headers)
             .validate(statusCode: 200..<300)
             .responseDecodable(of: ReviewResponse.self) {

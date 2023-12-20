@@ -11,7 +11,7 @@ import MapKit
 import SwiftUI
 
 struct MapAnnotation: Identifiable {
-    var id = UUID()
+    var id: UUID
     var location: CLLocationCoordinate2D
     var color: Color
 }
@@ -27,7 +27,7 @@ class MapViewModel: ObservableObject {
         let newLocation = CLLocationCoordinate2D(latitude: Double(restaurant.latitude)!, longitude: Double(restaurant.longitude)!)
         restaurantLocation = newLocation
         restaurantAddress = restaurant.address
-        annotations = [MapAnnotation(location: newLocation, color: Color.dangoBrown)]
+        annotations = [MapAnnotation(id: UUID(), location: newLocation, color: Color.dangoBrown)]
         
         region = MKCoordinateRegion(center: newLocation, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     }
